@@ -9,38 +9,108 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WorkSupplyDemandRouteImport } from './routes/work.supply-demand'
+import { Route as WorkPayrollComplianceRouteImport } from './routes/work.payroll-compliance'
 
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkSupplyDemandRoute = WorkSupplyDemandRouteImport.update({
+  id: '/work/supply-demand',
+  path: '/work/supply-demand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkPayrollComplianceRoute = WorkPayrollComplianceRouteImport.update({
+  id: '/work/payroll-compliance',
+  path: '/work/payroll-compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/work/payroll-compliance': typeof WorkPayrollComplianceRoute
+  '/work/supply-demand': typeof WorkSupplyDemandRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/work/payroll-compliance': typeof WorkPayrollComplianceRoute
+  '/work/supply-demand': typeof WorkSupplyDemandRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/work/payroll-compliance': typeof WorkPayrollComplianceRoute
+  '/work/supply-demand': typeof WorkSupplyDemandRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/payroll-compliance'
+    | '/work/supply-demand'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/payroll-compliance'
+    | '/work/supply-demand'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/work/payroll-compliance'
+    | '/work/supply-demand'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  WorkPayrollComplianceRoute: typeof WorkPayrollComplianceRoute
+  WorkSupplyDemandRoute: typeof WorkSupplyDemandRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +118,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work/supply-demand': {
+      id: '/work/supply-demand'
+      path: '/work/supply-demand'
+      fullPath: '/work/supply-demand'
+      preLoaderRoute: typeof WorkSupplyDemandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/payroll-compliance': {
+      id: '/work/payroll-compliance'
+      path: '/work/payroll-compliance'
+      fullPath: '/work/payroll-compliance'
+      preLoaderRoute: typeof WorkPayrollComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  WorkPayrollComplianceRoute: WorkPayrollComplianceRoute,
+  WorkSupplyDemandRoute: WorkSupplyDemandRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
