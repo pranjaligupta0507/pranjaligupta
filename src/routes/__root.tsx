@@ -76,10 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
       { name: "author", content: "Pranjali Gupta" },
       { property: "og:title", content: "Pranjali Gupta — Senior Product Designer" },
-      { property: "og:description", content: "Storytelling portfolio of a Product Designer simplifying enterprise SaaS, fintech & B2B workflows." },
+      { property: "og:description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Pranjali Gupta — Senior Product Designer" },
+      { name: "twitter:description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8921607c-8171-44ee-bffe-5069794622d7/id-preview-466c1dc1--5e47b4bc-fe0e-421f-899e-52d9ee443354.lovable.app-1778611518227.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8921607c-8171-44ee-bffe-5069794622d7/id-preview-466c1dc1--5e47b4bc-fe0e-421f-899e-52d9ee443354.lovable.app-1778611518227.png" },
     ],
     links: [
       {
