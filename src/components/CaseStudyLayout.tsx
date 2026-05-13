@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Editable } from "@/components/Editable";
+import { EditableImage } from "@/components/EditableImage";
 
 interface Props {
   /** Stable id used to namespace editable content for this case study (e.g. "payroll"). */
@@ -125,6 +126,26 @@ export function CaseStudyLayout(p: Props) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* PROCESS — sketches & interview */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <EditableImage id={`${k}.sketch.1`} alt="Early sketch" caption="Early flow exploration" captionId={`cs.${k}.sketch.1.cap`} />
+          <EditableImage id={`${k}.sketch.2`} alt="Wireframe" caption="Wireframe iteration" captionId={`cs.${k}.sketch.2.cap`} />
+          <EditableImage id={`${k}.sketch.3`} alt="Hi-fi" caption="Hi-fi annotation" captionId={`cs.${k}.sketch.3.cap`} />
+        </div>
+      </section>
+
+      {/* INTERVIEW — voice of the user */}
+      <section className="container-narrow mt-24">
+        <p className="eyebrow mb-4">Voices from the field</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Editable id={`cs.${k}.interview.1`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
+            “I just want to pay my people. If you ask me one more question on Friday I will switch tools.” <span className="block mt-3 text-xs font-mono text-muted-foreground">— Owner, 12-person construction firm</span>
+          </Editable>
+          <Editable id={`cs.${k}.interview.2`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
+            “Half my Mondays are spent figuring out who can take what. The tool only tells me after the fact.” <span className="block mt-3 text-xs font-mono text-muted-foreground">— Resource Manager, 8 years tenure</span>
+          </Editable>
         </div>
       </section>
 
