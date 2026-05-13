@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <p className="eyebrow mb-3">Pranjali Gupta</p>
           <p className="font-display text-2xl leading-tight">
-            Product Designer · Bangalore.
+            Experienced Product Designer · Bangalore.
           </p>
         </div>
         <div>
