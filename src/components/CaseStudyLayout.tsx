@@ -26,6 +26,7 @@ interface Props {
   tradeoffs?: { title: string; body: string }[];
   outcomes: { stat: string; label: string }[];
   reflection: ReactNode;
+  interviews?: { quote: string; who: string }[];
   next?: { slug: string; title: string };
 }
 
@@ -140,12 +141,14 @@ export function CaseStudyLayout(p: Props) {
       <section className="container-narrow mt-24">
         <p className="eyebrow mb-4">Voices from the field</p>
         <div className="grid md:grid-cols-2 gap-6">
-          <Editable id={`cs.${k}.interview.1`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
-            “I just want to pay my people. If you ask me one more question on Friday I will switch tools.” <span className="block mt-3 text-xs font-mono text-muted-foreground">— Owner, 12-person construction firm</span>
-          </Editable>
-          <Editable id={`cs.${k}.interview.2`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
-            “Half my Mondays are spent figuring out who can take what. The tool only tells me after the fact.” <span className="block mt-3 text-xs font-mono text-muted-foreground">— Resource Manager, 8 years tenure</span>
-          </Editable>
+          {(p.interviews ?? [
+            { quote: "I just want to pay my people. If you ask me one more question on Friday I will switch tools.", who: "Owner, 12-person construction firm" },
+            { quote: "Half my Mondays are spent figuring out who can take what. The tool only tells me after the fact.", who: "Resource Manager, 8 years tenure" },
+          ]).map((q, i) => (
+            <Editable key={i} id={`cs.${k}.interview.${i}`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
+              “{q.quote}” <span className="block mt-3 text-xs font-mono text-muted-foreground">— {q.who}</span>
+            </Editable>
+          ))}
         </div>
       </section>
 
