@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Editable } from "@/components/Editable";
+import { EditableImage } from "@/components/EditableImage";
 
 interface Props {
   /** Stable id used to namespace editable content for this case study (e.g. "payroll"). */
@@ -25,6 +26,7 @@ interface Props {
   tradeoffs?: { title: string; body: string }[];
   outcomes: { stat: string; label: string }[];
   reflection: ReactNode;
+  interviews?: { quote: string; who: string }[];
   next?: { slug: string; title: string };
 }
 
@@ -126,6 +128,28 @@ export function CaseStudyLayout(p: Props) {
             </div>
           ))}
         </div>
+
+        {/* PROCESS — sketches & interview */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <EditableImage id={`${k}.sketch.1`} alt="Early sketch" caption="Early flow exploration" captionId={`cs.${k}.sketch.1.cap`} />
+          <EditableImage id={`${k}.sketch.2`} alt="Wireframe" caption="Wireframe iteration" captionId={`cs.${k}.sketch.2.cap`} />
+          <EditableImage id={`${k}.sketch.3`} alt="Hi-fi" caption="Hi-fi annotation" captionId={`cs.${k}.sketch.3.cap`} />
+        </div>
+      </section>
+
+      {/* INTERVIEW — voice of the user */}
+      <section className="container-narrow mt-24">
+        <p className="eyebrow mb-4">Voices from the field</p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {(p.interviews ?? [
+            { quote: "I just want to pay my people. If you ask me one more question on Friday I will switch tools.", who: "Owner, 12-person construction firm" },
+            { quote: "Half my Mondays are spent figuring out who can take what. The tool only tells me after the fact.", who: "Resource Manager, 8 years tenure" },
+          ]).map((q, i) => (
+            <Editable key={i} id={`cs.${k}.interview.${i}`} as="blockquote" className="glass rounded-2xl p-7 text-lg leading-relaxed border-l-2 border-amber">
+              “{q.quote}” <span className="block mt-3 text-xs font-mono text-muted-foreground">— {q.who}</span>
+            </Editable>
+          ))}
+        </div>
       </section>
 
       {/* TRADE-OFFS — signals seniority */}
@@ -210,18 +234,27 @@ function Meta({ label, value, id }: { label: string; value: string; id: string }
 }
 
 function FigmaLink({ url, id }: { url?: string; id: string }) {
+  // Owner edits the URL inline (paste it into the field). Visitors see it as a link.
   return (
     <div>
       <p className="eyebrow mb-2">Figma</p>
-      {url ? (
-        <a href={url} target="_blank" rel="noopener" className="inline-flex items-center gap-2 text-amber hover:underline">
-          View prototype ↗
-        </a>
-      ) : (
-        <Editable id={id} as="p" className="text-muted-foreground italic" multiline={false}>
-          Add Figma link →
-        </Editable>
-      )}
+      <Editable id={id} as="div" multiline={false} className="text-amber hover:underline break-all">
+        {url ?? "Paste Figma link here"}
+      </Editable>
+      <FigmaOpen storageId={id} fallback={url} />
     </div>
+  );
+}
+
+function FigmaOpen({ storageId, fallback }: { storageId: string; fallback?: string }) {
+  if (typeof window === "undefined") return null;
+  let stored: string | null = null;
+  try { stored = localStorage.getItem(`edit:${storageId}`); } catch {}
+  const raw = (stored || fallback || "").replace(/<[^>]+>/g, "").trim();
+  if (!raw || !/^https?:\/\//.test(raw)) return null;
+  return (
+    <a href={raw} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-muted-foreground hover:text-amber inline-flex mt-1">
+      Open prototype ↗
+    </a>
   );
 }

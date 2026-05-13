@@ -7,6 +7,7 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-3 group">
           <span className="w-8 h-8 rounded-full bg-foreground text-background grid place-items-center font-display text-sm">P</span>
           <span className="font-display text-lg tracking-tight">Pranjali Gupta</span>
+          <span className="hidden sm:inline text-xs text-muted-foreground font-mono">· Experienced Product Designer</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="text-muted-foreground hover:text-foreground transition">Work</Link>

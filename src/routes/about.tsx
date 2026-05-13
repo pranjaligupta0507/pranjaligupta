@@ -5,8 +5,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Pranjali Gupta · Product Designer" },
-      { name: "description", content: "Product Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing product thinking with user-centered design." },
+      { title: "About — Pranjali Gupta · Experienced Product Designer" },
+      { name: "description", content: "Experienced Product Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
     ],
   }),
   component: About,
@@ -62,8 +62,9 @@ function About() {
           surface — the real work happens upstream of it.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. Curious about the next decade of B2B and fintech — where thoughtful
-          design decides which parts of work humans get to keep.
+          Based in Bangalore. I work alongside AI the way I work alongside engineers and PMs — as a
+          collaborator that speeds up research synthesis, exploration and edge-case thinking, while
+          the design judgement, the user empathy and the trade-offs stay mine.
         </Editable>
       </section>
 

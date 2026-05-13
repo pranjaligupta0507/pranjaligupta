@@ -1,8 +1,10 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { Editable } from "@/components/Editable";
 
 interface FlipCardProps {
+  editKey: string;
   no: string;
   image: string;
   title: string;
@@ -19,6 +21,7 @@ interface FlipCardProps {
 
 export function FlipCard(props: FlipCardProps) {
   const [flipped, setFlipped] = useState(false);
+  const k = props.editKey;
 
   return (
     <motion.div
@@ -26,7 +29,7 @@ export function FlipCard(props: FlipCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
-      className="flip-scene min-h-[520px]"
+      className="flip-scene min-h-[560px]"
     >
       <div className={`flip-card h-full ${flipped ? "is-flipped" : ""}`}>
         {/* FRONT */}
@@ -37,11 +40,7 @@ export function FlipCard(props: FlipCardProps) {
           aria-label={`Flip card: ${props.title}`}
         >
           <div className="relative h-64 overflow-hidden">
-            <img
-              src={props.image}
-              alt={props.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+            <img src={props.image} alt={props.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
             <span className="absolute top-4 left-4 font-mono text-xs px-2.5 py-1 rounded-full bg-background/70 border border-border">
               {props.no}
@@ -51,21 +50,26 @@ export function FlipCard(props: FlipCardProps) {
             </span>
           </div>
           <div className="p-6">
-            <p className="font-mono text-xs text-amber mb-3">{props.company} · {props.year}</p>
-            <h3 className="font-display text-2xl md:text-3xl leading-tight">{props.title}</h3>
+            <Editable id={`fc.${k}.company`} as="p" multiline={false} className="font-mono text-xs text-amber mb-3">
+              {props.company} · {props.year}
+            </Editable>
+            <Editable id={`fc.${k}.title`} as="h3" className="font-display text-2xl md:text-3xl leading-tight">
+              {props.title}
+            </Editable>
             <div className="mt-5 flex flex-wrap gap-2">
-              {props.tags.map((t) => (
-                <span key={t} className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground">{t}</span>
+              {props.tags.map((t, i) => (
+                <Editable key={i} id={`fc.${k}.tag.${i}`} as="span" multiline={false} className="text-xs px-2.5 py-1 rounded-full border border-border text-muted-foreground">
+                  {t}
+                </Editable>
               ))}
             </div>
           </div>
         </button>
 
         {/* BACK */}
-        <div className="flip-face flip-back absolute inset-0 rounded-2xl p-7 md:p-8 overflow-hidden flex flex-col"
-             style={{ background: "var(--gradient-card)" }}>
+        <div className="flip-face flip-back absolute inset-0 rounded-2xl p-7 md:p-8 overflow-hidden flex flex-col" style={{ background: "var(--gradient-card)" }}>
           <div className="flex items-start justify-between gap-3">
-            <p className="eyebrow">Background & My Role</p>
+            <p className="eyebrow">Background &amp; My Role</p>
             <button
               type="button"
               onClick={() => setFlipped(false)}
@@ -76,24 +80,30 @@ export function FlipCard(props: FlipCardProps) {
             </button>
           </div>
 
-          <h3 className="font-display text-2xl mt-3 leading-tight">{props.title}</h3>
+          <Editable id={`fc.${k}.titleBack`} as="h3" className="font-display text-2xl mt-3 leading-tight">
+            {props.title}
+          </Editable>
 
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground overflow-y-auto pr-1">
             <div>
               <p className="text-xs uppercase tracking-wider text-amber/80 mb-1 font-mono">Background</p>
-              <p>{props.background}</p>
+              <Editable id={`fc.${k}.bg`} as="p">{props.background}</Editable>
             </div>
             <div>
               <p className="text-xs uppercase tracking-wider text-amber/80 mb-1 font-mono">My Role</p>
-              <p>{props.role}</p>
+              <Editable id={`fc.${k}.role`} as="p">{props.role}</Editable>
             </div>
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-2 border-t border-border pt-4">
-            {props.metrics.map((m) => (
-              <div key={m.label}>
-                <div className="font-display text-xl text-gradient">{m.stat}</div>
-                <p className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 leading-tight">{m.label}</p>
+            {props.metrics.map((m, i) => (
+              <div key={i}>
+                <Editable id={`fc.${k}.m.${i}.s`} as="div" multiline={false} className="font-display text-xl text-gradient">
+                  {m.stat}
+                </Editable>
+                <Editable id={`fc.${k}.m.${i}.l`} as="p" multiline={false} className="text-[10px] uppercase tracking-wider text-muted-foreground mt-1 leading-tight">
+                  {m.label}
+                </Editable>
               </div>
             ))}
           </div>

@@ -9,8 +9,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pranjali Gupta — Product Designer | Enterprise SaaS · Fintech · B2B" },
-      { name: "description", content: "Product Designer with 9.5+ years designing the kind of products thousands of professionals rely on every day — across enterprise SaaS, fintech and B2B." },
+      { title: "Pranjali Gupta — Experienced Product Designer | Enterprise SaaS · Fintech · B2B" },
+      { name: "description", content: "Experienced Product Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
     ],
   }),
   component: Home,
@@ -18,6 +18,7 @@ export const Route = createFileRoute("/")({
 
 const cases = [
   {
+    editKey: "payroll",
     no: "01",
     slug: "/work/payroll-compliance",
     image: casePayroll,
@@ -36,6 +37,7 @@ const cases = [
     ],
   },
   {
+    editKey: "supply",
     no: "02",
     slug: "/work/supply-demand",
     image: caseSupply,
@@ -58,12 +60,12 @@ const cases = [
 function Home() {
   return (
     <>
-      {/* HERO — trimmed, no name-drop, no desperation */}
+      {/* HERO */}
       <section className="container-editorial pt-16 md:pt-24 pb-16">
         <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
           <div>
             <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
-              Pranjali Gupta · Product Designer · Bangalore
+              Pranjali Gupta · Experienced Product Designer · Bangalore
             </Editable>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
@@ -73,8 +75,10 @@ function Home() {
             </motion.div>
             <Editable id="home.hero.lede" as="p" className="lede mt-8 max-w-2xl">
               9.5+ years designing the kind of products thousands of professionals rely on every day —
-              across enterprise SaaS, fintech and B2B. Product thinking, grounded in research, tied to
-              outcomes that move the business.
+              across enterprise SaaS, fintech and B2B. I pair user-centered design with{" "}
+              <span className="text-foreground">AI-augmented workflows</span> — using AI to move
+              faster on research synthesis, exploration and copy, so the human judgement lands where
+              it matters most.
             </Editable>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#work" className="px-5 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-105 transition shadow-lg">
@@ -86,18 +90,13 @@ function Home() {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="animate-float"
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="animate-float">
             <ProfilePhoto />
           </motion.div>
         </div>
       </section>
 
-      {/* WORK — promoted to immediately after hero */}
+      {/* WORK */}
       <section id="work" className="container-editorial pt-8 pb-16">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div>
@@ -108,11 +107,7 @@ function Home() {
               A couple of projects I've been close to.
             </Editable>
           </div>
-          <Editable
-            id="home.work.note"
-            as="p"
-            className="text-sm text-muted-foreground max-w-xs font-mono"
-          >
+          <Editable id="home.work.note" as="p" className="text-sm text-muted-foreground max-w-xs font-mono">
             Tap a tile for the short version. Open it for the full story.
           </Editable>
         </div>
@@ -124,7 +119,7 @@ function Home() {
         </div>
       </section>
 
-      {/* IMPACT STRIP — moved below work */}
+      {/* IMPACT STRIP — fully editable */}
       <section className="border-y border-border glass">
         <div className="container-editorial py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
@@ -133,15 +128,11 @@ function Home() {
             ["2,500+", "users adopted across 150+ clients"],
             ["9.5 yrs", "across 3 global enterprises"],
           ].map(([n, l], i) => (
-            <motion.div
-              key={n}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-            >
-              <div className="font-display text-4xl md:text-5xl text-gradient">{n}</div>
-              <Editable id={`home.impact.${i}`} as="p" className="text-sm text-muted-foreground mt-2 leading-snug">
+            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }}>
+              <Editable id={`home.impact.${i}.n`} as="div" multiline={false} className="font-display text-4xl md:text-5xl text-gradient">
+                {n}
+              </Editable>
+              <Editable id={`home.impact.${i}.l`} as="p" className="text-sm text-muted-foreground mt-2 leading-snug">
                 {l}
               </Editable>
             </motion.div>
@@ -152,11 +143,10 @@ function Home() {
       {/* APPROACH */}
       <section className="container-editorial mt-28">
         <Editable id="home.approach.eyebrow" as="p" className="eyebrow mb-3" multiline={false}>
-          How I think
+          How I work
         </Editable>
         <Editable id="home.approach.title" as="h2" className="display-lg max-w-3xl">
-          Good UX inside enterprise software is quiet. It removes the friction that builds up over
-          two hundred clicks a day.
+          Human judgement, sharpened by AI. Built on research, shipped against outcomes.
         </Editable>
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
@@ -165,22 +155,15 @@ function Home() {
               d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
             },
             {
-              t: "User-centered, always",
-              d: "Every decision is grounded in research, behavior data and qualitative insight — not aesthetics for their own sake.",
+              t: "Human + AI, in the loop",
+              d: "I use AI for research synthesis, rapid exploration, content drafts and edge-case generation — then bring my own judgement to the trade-offs that actually ship.",
             },
             {
               t: "Compliance as clarity",
               d: "In fintech, payroll and audit, the rules can't bend. The job is to make them feel like guidance, not a maze.",
             },
           ].map((p, i) => (
-            <motion.div
-              key={p.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass rounded-2xl p-7 hover:-translate-y-1 transition-transform"
-            >
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="glass rounded-2xl p-7 hover:-translate-y-1 transition-transform">
               <div className="font-display text-3xl text-amber mb-3">0{i + 1}</div>
               <Editable id={`home.approach.${i}.t`} as="h3" className="font-display text-xl leading-snug mb-3">
                 {p.t}
@@ -193,16 +176,9 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA — humble */}
+      {/* CTA */}
       <section className="container-editorial mt-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-3xl p-10 md:p-16 grid md:grid-cols-[1fr_auto] gap-8 items-end"
-          style={{ background: "var(--gradient-amber)" }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="rounded-3xl p-10 md:p-16 grid md:grid-cols-[1fr_auto] gap-8 items-end" style={{ background: "var(--gradient-amber)" }}>
           <div>
             <p className="font-mono text-xs uppercase tracking-widest text-ink/70 mb-4">Get in touch</p>
             <Editable id="home.cta.title" as="h2" className="font-display text-4xl md:text-5xl leading-[1.05] max-w-2xl text-ink">

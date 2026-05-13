@@ -22,6 +22,10 @@ export const Route = createFileRoute("/work/supply-demand")({
         team: "2 PMs · 2 Design · 8 Eng · Ops leadership",
       }}
       figmaUrl={undefined}
+      interviews={[
+        { quote: "I keep my real plan in a spreadsheet. The tool is just where I report it after.", who: "Resource Manager, 8 years tenure" },
+        { quote: "By the time I see a request in the queue, two preparers have already gone idle. I'm always one Monday behind.", who: "Reviewer, audit team lead" },
+      ]}
       title="Three roles, one shared picture of the work."
       hook="Inside a global professional-services firm, every idle hour is a measurable loss. Preparers, reviewers and resource managers were each working from a different system with a different idea of 'capacity'. We replaced three tools with one shared workspace — and lifted workforce productivity by 75%."
       hero={hero}

@@ -22,6 +22,10 @@ export const Route = createFileRoute("/work/payroll-compliance")({
         team: "1 PM · 1 Design · 4 Eng · Compliance · Legal",
       }}
       figmaUrl={undefined}
+      interviews={[
+        { quote: "I just want to pay my people. If you ask me one more question on Friday I will switch tools.", who: "Owner, 12-person construction firm" },
+        { quote: "I'd happily fill the field — I just don't know which option I am. Give me examples and I'll pick.", who: "Owner, 5-person dental practice" },
+      ]}
       title="A small required field with very large consequences."
       hook="QuickBooks Payroll powers payday for hundreds of thousands of US small businesses. When the IRS expanded the data required on quarterly filings, one extra field — Job Title — became the difference between clean compliance and five-figure penalties. This is the story of designing that field so an SMB owner felt guided, not policed."
       hero={hero}
