@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Editable } from "@/components/Editable";
-import { EditableLink } from "@/components/EditableLink";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
