@@ -47,6 +47,10 @@ export function Editable({ id, as: Tag = "div", className = "", children, multil
     if (e.key === "Escape") (e.target as HTMLElement).blur();
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (editing) e.stopPropagation();
+  };
+
   const editingClasses = editing
     ? "outline-dashed outline-1 outline-offset-4 outline-amber/40 hover:outline-amber focus:outline-amber focus:outline-2 cursor-text rounded-sm transition relative"
     : "";
@@ -66,6 +70,7 @@ export function Editable({ id, as: Tag = "div", className = "", children, multil
       contentEditable={editing}
       suppressContentEditableWarning
       onBlur={save}
+      onClick={handleClick}
       onKeyDown={handleKey}
       data-edit-id={id}
     >
