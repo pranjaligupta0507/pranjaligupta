@@ -40,8 +40,7 @@ function About() {
               A designer with a <span className="text-gradient">product brain</span>.
             </Editable>
             <Editable id="about.hero.lede" as="p" className="lede mt-8 max-w-xl">
-              I think in products and design for people — pairing user-centered design with the
-              business sense to know which trade-offs matter.
+              I think in products and design for people.
             </Editable>
           </div>
           <div className="md:col-span-5">
@@ -56,14 +55,11 @@ function About() {
           enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
         </Editable>
         <Editable id="about.body.2" as="p">
-          My approach is simple: start with the workflow, ground every decision in user research and
-          behavior data, and tie the design back to a measurable outcome. The screen is the
-          surface — the real work happens upstream of it.
+          My approach is simple: start with the workflow, ground every decision in research, and tie
+          the design back to a measurable outcome.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. I use AI as a design accelerator for synthesis, exploration, content
-          variants and edge-case thinking — while the user empathy, product judgement and final
-          trade-offs stay human.
+          Based in Bangalore. I use AI to move faster — the judgement and trade-offs stay human.
         </Editable>
       </section>
 
@@ -77,7 +73,7 @@ function About() {
         </Editable>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { c: "Intuit", n: "QuickBooks Payroll — fintech for US small businesses." },
+            { c: "Intuit", n: "QuickBooks Payroll — fintech for US mid-market businesses." },
             { c: "Deloitte", n: "Intela & enterprise platforms — onboarding and reporting at scale." },
             { c: "KPMG", n: "Productivity tooling — workforce alignment for global audit teams." },
           ].map((x, i) => (
