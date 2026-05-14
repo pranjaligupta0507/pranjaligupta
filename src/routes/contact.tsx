@@ -1,19 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Editable } from "@/components/Editable";
+import { EditableLink } from "@/components/EditableLink";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Pranjali Gupta" },
-      { name: "description", content: "Get in touch with Pranjali Gupta — Product Designer based in Bangalore." },
+      { name: "description", content: "Get in touch with Pranjali Gupta — Experienced UX Designer based in Bangalore." },
     ],
   }),
   component: Contact,
 });
 
 const EMAIL = "pranjaligupta0507@gmail.com";
-const PHONE = "+91 70585 12267";
+const PHONE = "+91 7058 512 267";
 const PHONE_HREF = "tel:+917058512267";
 const LINKEDIN = "https://www.linkedin.com/in/pranjali-gupta-5a1234110/";
 
@@ -42,15 +43,11 @@ function Contact() {
         <div className="glass rounded-2xl p-8 md:p-10 space-y-7">
           <div>
             <p className="eyebrow mb-2">Email</p>
-            <a href={`mailto:${EMAIL}`} className="font-display text-2xl md:text-3xl break-words text-foreground hover:text-amber transition">
-              {EMAIL}
-            </a>
+            <EditableLink id="contact.email" href={EMAIL} label={EMAIL} kind="email" className="font-display text-2xl md:text-3xl break-words text-foreground hover:text-amber transition" />
           </div>
           <div className="border-t border-border pt-6">
             <p className="eyebrow mb-2">Phone</p>
-            <a href={PHONE_HREF} className="font-display text-2xl md:text-3xl text-foreground hover:text-amber transition">
-              {PHONE}
-            </a>
+            <EditableLink id="contact.phone" href={PHONE_HREF} label={PHONE} kind="phone" className="font-display text-2xl md:text-3xl text-foreground hover:text-amber transition" />
             <Editable id="contact.phone.note" as="p" className="text-sm text-muted-foreground mt-2">
               Calls and WhatsApp, weekdays 10am — 7pm IST.
             </Editable>
@@ -58,18 +55,18 @@ function Contact() {
           <div className="border-t border-border pt-6">
             <p className="eyebrow mb-2">Based in</p>
             <Editable id="contact.location" as="p" className="font-display text-2xl text-foreground">
-              Bangalore, India — open to remote and hybrid.
+              Bangalore, India.
             </Editable>
           </div>
         </div>
 
         {/* LinkedIn embed-style card */}
-        <a
+        <EditableLink
+          id="contact.linkedin.card"
           href={LINKEDIN}
+          label="View on LinkedIn"
           target="_blank"
-          rel="noopener"
           className="block rounded-2xl overflow-hidden border border-border hover:border-amber transition group"
-          style={{ background: "var(--gradient-card)" }}
         >
           <div className="h-28 bg-gradient-to-r from-azure/30 via-amber/20 to-azure/30" />
           <div className="px-7 pb-7 -mt-12 relative">
