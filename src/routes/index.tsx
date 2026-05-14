@@ -64,8 +64,19 @@ function Home() {
       <section className="container-editorial pt-16 md:pt-24 pb-16">
         <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
           <div>
-            <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
-              Pranjali Gupta · Experienced UX Designer · Bangalore
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <Editable id="home.hero.eyebrow" as="p" className="eyebrow !mb-0" multiline={false}>
+                Bangalore, India
+              </Editable>
+              <Editable id="home.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                ● Open to work
+              </Editable>
+            </div>
+            <Editable id="home.hero.name" as="p" multiline={false} className="font-display text-3xl md:text-4xl text-foreground mb-2">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono text-sm md:text-base text-amber mb-6 tracking-wide uppercase">
+              Experienced UX Designer
             </Editable>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
