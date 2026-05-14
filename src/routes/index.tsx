@@ -67,13 +67,13 @@ function Home() {
             <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
               Bangalore, India
             </Editable>
-            <Editable id="home.hero.name" as="p" multiline={false} className="font-display font-bold text-4xl md:text-5xl text-foreground mb-2">
+            <Editable id="home.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-7xl text-foreground mb-3 leading-[1.05]">
               Pranjali Gupta
             </Editable>
-            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-4 tracking-wide uppercase">
+            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-6 tracking-wide uppercase">
               Senior UX Designer
             </Editable>
-            <div className="mb-6">
+            <div className="mb-8">
               <Editable id="home.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 ● Open to work
               </Editable>
