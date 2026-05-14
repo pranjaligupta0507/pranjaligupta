@@ -97,6 +97,9 @@ export function FlipCard(props: FlipCardProps) {
           </Editable>
 
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground overflow-y-auto pr-1">
+            <Editable id={`fc.${k}.confidential`} as="p" className="text-[11px] italic text-amber/80 border-l-2 border-amber/40 pl-3">
+              Note: To respect confidentiality, regulatory references, internal data and screens have been generalized — these are recreated, illustrative versions of the actual work.
+            </Editable>
             <div>
               <p className="text-xs uppercase tracking-wider text-amber/80 mb-1 font-mono">Background</p>
               <Editable id={`fc.${k}.bg`} as="p">{props.background}</Editable>
