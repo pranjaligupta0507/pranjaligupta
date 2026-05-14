@@ -8,7 +8,7 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-3 group">
           <Editable id="nav.logo.initial" as="span" multiline={false} className="w-8 h-8 rounded-full bg-foreground text-background grid place-items-center font-display text-sm">P</Editable>
           <Editable id="nav.name" as="span" multiline={false} className="font-display text-lg tracking-tight">Pranjali Gupta</Editable>
-          <Editable id="nav.role" as="span" multiline={false} className="hidden sm:inline text-xs text-muted-foreground font-mono">· Experienced UX Designer</Editable>
+          <Editable id="nav.role" as="span" multiline={false} className="hidden sm:inline text-xs text-muted-foreground font-mono">· Senior UX Designer</Editable>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="text-muted-foreground hover:text-foreground transition">Work</Link>
