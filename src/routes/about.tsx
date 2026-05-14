@@ -5,8 +5,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Pranjali Gupta · Experienced UX Designer" },
-      { name: "description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
+      { title: "About — Pranjali Gupta · Senior UX Designer" },
+      { name: "description", content: "Senior UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
     ],
   }),
   component: About,
@@ -34,19 +34,14 @@ function About() {
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
             <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
-              About
+              Bangalore, India
             </Editable>
-            <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-6xl text-foreground mb-2 leading-tight">
+            <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-7xl text-foreground mb-3 leading-[1.05]">
               Pranjali Gupta
             </Editable>
-            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-lg md:text-xl text-amber mb-4 tracking-wide uppercase">
-              Experienced UX Designer
+            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-8 tracking-wide uppercase">
+              Senior UX Designer
             </Editable>
-            <div className="mb-6">
-              <Editable id="about.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                ● Open to work
-              </Editable>
-            </div>
             <Editable id="about.hero.title" as="h1" className="display-lg">
               A designer with a <span className="text-gradient">product brain</span>.
             </Editable>
@@ -62,7 +57,7 @@ function About() {
 
       <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground">
         <Editable id="about.body.1" as="p">
-          I'm an Experienced UX Designer with <span className="text-foreground">9.5+ years</span> across
+          I'm a Senior UX Designer with <span className="text-foreground">9.5+ years</span> across
           enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
         </Editable>
         <Editable id="about.body.2" as="p">
