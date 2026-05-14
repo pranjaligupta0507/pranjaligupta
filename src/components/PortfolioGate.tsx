@@ -1,34 +1,105 @@
 import { useEffect, useState, type ReactNode } from "react";
 
 const GATE_KEY = "pranjali.portfolio.access";
-const PORTFOLIO_PASSCODE = "Pranjali@2026";
+const PASSCODE_KEY = "pranjali.portfolio.passcode";
+const OWNER_KEY = "pranjali.owner";
 
+/**
+ * Optional portfolio passcode gate.
+ *
+ * - By default the portfolio is PUBLIC. No passcode is set out of the box.
+ * - Only the owner (unlocked via Edit Mode, Ctrl+Shift+E) can set or remove
+ *   a passcode from the in-page settings panel below.
+ * - Visitors only see the lock screen if the owner has set a passcode.
+ */
 export function PortfolioGate({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
-  const [allowed, setAllowed] = useState(false);
+  const [passcode, setPasscode] = useState<string | null>(null);
+  const [allowed, setAllowed] = useState(true);
   const [code, setCode] = useState("");
   const [error, setError] = useState("");
+  const [isOwner, setIsOwner] = useState(false);
+  const [showOwnerPanel, setShowOwnerPanel] = useState(false);
+  const [newPass, setNewPass] = useState("");
 
   useEffect(() => {
     try {
-      setAllowed(localStorage.getItem(GATE_KEY) === "1");
+      const stored = localStorage.getItem(PASSCODE_KEY);
+      setPasscode(stored && stored.length > 0 ? stored : null);
+      setAllowed(!stored || localStorage.getItem(GATE_KEY) === "1");
+      setIsOwner(localStorage.getItem(OWNER_KEY) === "1");
     } catch {}
     setReady(true);
   }, []);
 
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (code.trim() === PORTFOLIO_PASSCODE) {
+    if (passcode && code === passcode) {
       try { localStorage.setItem(GATE_KEY, "1"); } catch {}
       setAllowed(true);
       setError("");
       return;
     }
-    setError("Incorrect passcode. Please try again.");
+    setError("Incorrect passcode.");
+  };
+
+  const setOrClearPasscode = (value: string) => {
+    try {
+      if (value.trim() === "") {
+        localStorage.removeItem(PASSCODE_KEY);
+        localStorage.removeItem(GATE_KEY);
+        setPasscode(null);
+      } else {
+        localStorage.setItem(PASSCODE_KEY, value);
+        localStorage.setItem(GATE_KEY, "1");
+        setPasscode(value);
+      }
+    } catch {}
+    setNewPass("");
+    setShowOwnerPanel(false);
   };
 
   if (!ready) return null;
-  if (allowed) return <>{children}</>;
+
+  // No passcode set → public portfolio. Just render children, plus the
+  // owner-only floating "Set passcode" control if the viewer is the owner.
+  if (!passcode || allowed) {
+    return (
+      <>
+        {children}
+        {isOwner && (
+          <div className="fixed bottom-5 left-5 z-40">
+            {showOwnerPanel ? (
+              <div className="bg-card border border-border rounded-2xl p-4 shadow-xl w-72">
+                <p className="eyebrow mb-2">Portfolio passcode</p>
+                <p className="text-xs text-muted-foreground mb-3">
+                  {passcode ? "A passcode is currently set. Leave empty and save to remove it." : "No passcode. Visitors see the portfolio publicly."}
+                </p>
+                <input
+                  type="text"
+                  value={newPass}
+                  onChange={(e) => setNewPass(e.target.value)}
+                  placeholder={passcode ? "New passcode (or empty to remove)" : "Set a passcode"}
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-border text-sm font-mono outline-none focus:border-amber"
+                />
+                <div className="flex justify-end gap-2 mt-3">
+                  <button onClick={() => setShowOwnerPanel(false)} className="text-xs px-3 py-1.5 rounded-full border border-border">Cancel</button>
+                  <button onClick={() => setOrClearPasscode(newPass)} className="text-xs px-3 py-1.5 rounded-full bg-amber text-ink">Save</button>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowOwnerPanel(true)}
+                className="text-[11px] font-mono uppercase tracking-wider px-3 py-2 rounded-full bg-card border border-border hover:border-amber shadow-lg"
+              >
+                {passcode ? "🔒 Passcode set" : "🔓 Set passcode"}
+              </button>
+            )}
+          </div>
+        )}
+      </>
+    );
+  }
 
   return (
     <main className="min-h-screen grid place-items-center px-6 py-16">
