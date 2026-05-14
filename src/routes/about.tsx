@@ -113,8 +113,8 @@ function About() {
           <h3 className="font-display text-3xl mb-6">Recognition</h3>
           <ul className="space-y-5 text-muted-foreground">
             <li>
-              <p className="font-mono text-xs text-amber">2025</p>
-              <Editable id="about.award.1" as="p" className="mt-1">Multiple appreciations from product, engineering and partner teams.</Editable>
+              <p className="font-mono text-xs text-amber">2024 — 25</p>
+              <Editable id="about.award.1" as="p" className="mt-1">Outstanding Professional Award and multiple appreciations from product, design, leadership and partner teams.</Editable>
             </li>
             <li>
               <p className="font-mono text-xs text-amber">2021 — 24</p>
