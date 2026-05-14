@@ -27,7 +27,7 @@ const cases = [
     year: "2025",
     tags: ["Fintech", "Compliance UX", "0 → 1"],
     background:
-      "QuickBooks Payroll serves US small businesses that rely on payday to be accurate, timely and compliant. New IRS rules required employers to capture standardized job titles for every employee — a small field with real penalty risk if handled poorly.",
+      "QuickBooks Payroll serves US mid-market businesses that rely on payday to be accurate, timely and compliant. New IRS rules required employers to capture standardized job titles for every employee — a single field with real penalty risk if handled poorly.",
     role:
       "Owned the UX for research, IA, prototyping and stakeholder alignment across product, engineering, compliance and legal — shaping a flow that helped customers complete the requirement without making payroll feel harder.",
     metrics: [

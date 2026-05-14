@@ -6,7 +6,7 @@ const EditModeCtx = createContext<Ctx>({ editing: false, owner: false, toggle: (
 const KEY = "pranjali.editmode";
 const OWNER_KEY = "pranjali.owner";
 // Owner passcode — only Pranjali knows this. Visitors see a read-only site.
-const OWNER_CODE = "pranjali2025";
+const OWNER_CODE = "pranjali2026";
 
 export function EditModeProvider({ children }: { children: ReactNode }) {
   const [editing, setEditing] = useState(false);
