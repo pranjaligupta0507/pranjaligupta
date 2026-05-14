@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import hero from "@/assets/case-supply.jpg";
+import sketch1 from "@/assets/supply-sketch-1.svg";
+import sketch2 from "@/assets/supply-sketch-2.svg";
+import sketch3 from "@/assets/supply-sketch-3.svg";
 
 export const Route = createFileRoute("/work/supply-demand")({
   head: () => ({
@@ -15,13 +18,18 @@ export const Route = createFileRoute("/work/supply-demand")({
       editKey="supply"
       meta={{
         company: "KPMG · Productivity Tool (AT)",
-        role: "Lead Product Designer",
+        role: "UX Designer — End-to-end owner",
         year: "2022 — 2024",
         duration: "18 months · End-to-end ownership",
         platform: "Internal web platform · Global",
         team: "2 PMs · 2 Design · 8 Eng · Ops leadership",
       }}
       figmaUrl={undefined}
+      sketches={[
+        { src: sketch1, alt: "Supply-demand workflow map", caption: "Workflow map — preparers, reviewers and managers moving from separate tools to one picture." },
+        { src: sketch2, alt: "Role-aware dashboard wireframe", caption: "Role-aware lens — same data, different decisions for each user group." },
+        { src: sketch3, alt: "Request flow annotation", caption: "Request flow — making availability and staffing SLA visible before work goes idle." },
+      ]}
       interviews={[
         { quote: "I keep my real plan in a spreadsheet. The tool is just where I report it after.", who: "Resource Manager, 8 years tenure" },
         { quote: "By the time I see a request in the queue, two preparers have already gone idle. I'm always one Monday behind.", who: "Reviewer, audit team lead" },
