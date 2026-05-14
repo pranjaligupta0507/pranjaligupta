@@ -55,6 +55,11 @@ export function FlipCard(props: FlipCardProps) {
             <span className="absolute top-4 right-4 font-mono text-xs px-2.5 py-1 rounded-full bg-amber text-ink">
               <Editable id={`fc.${k}.flipLabel`} as="span" multiline={false}>Tap to flip ↻</Editable>
             </span>
+            {editing && (
+              <button type="button" onClick={() => setFlipped(true)} className="absolute bottom-4 right-4 font-mono text-xs px-3 py-1.5 rounded-full bg-card border border-border text-foreground">
+                Edit back
+              </button>
+            )}
           </div>
           <div className="p-6">
             <Editable id={`fc.${k}.company`} as="p" multiline={false} className="font-mono text-xs text-amber mb-3">
