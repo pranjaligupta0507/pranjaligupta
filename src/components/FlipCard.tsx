@@ -2,6 +2,8 @@ import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Editable } from "@/components/Editable";
+import { EditableImage } from "@/components/EditableImage";
+import { useEditMode } from "@/components/EditMode";
 
 interface FlipCardProps {
   editKey: string;
@@ -21,6 +23,7 @@ interface FlipCardProps {
 
 export function FlipCard(props: FlipCardProps) {
   const [flipped, setFlipped] = useState(false);
+  const { editing } = useEditMode();
   const k = props.editKey;
 
   return (
@@ -33,20 +36,24 @@ export function FlipCard(props: FlipCardProps) {
     >
       <div className={`flip-card h-full ${flipped ? "is-flipped" : ""}`}>
         {/* FRONT */}
-        <button
-          type="button"
-          onClick={() => setFlipped(true)}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => { if (!editing) setFlipped(true); }}
+          onKeyDown={(event) => {
+            if (!editing && (event.key === "Enter" || event.key === " ")) setFlipped(true);
+          }}
           className="flip-face absolute inset-0 text-left rounded-2xl overflow-hidden glass group cursor-pointer"
           aria-label={`Flip card: ${props.title}`}
         >
           <div className="relative h-64 overflow-hidden">
-            <img src={props.image} alt={props.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <EditableImage id={`fc.${k}.image`} defaultSrc={props.image} alt={props.title} imgClassName="w-full h-64 object-cover block group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
             <span className="absolute top-4 left-4 font-mono text-xs px-2.5 py-1 rounded-full bg-background/70 border border-border">
-              {props.no}
+              <Editable id={`fc.${k}.no`} as="span" multiline={false}>{props.no}</Editable>
             </span>
             <span className="absolute top-4 right-4 font-mono text-xs px-2.5 py-1 rounded-full bg-amber text-ink">
-              Tap to flip ↻
+              <Editable id={`fc.${k}.flipLabel`} as="span" multiline={false}>Tap to flip ↻</Editable>
             </span>
           </div>
           <div className="p-6">
@@ -64,12 +71,12 @@ export function FlipCard(props: FlipCardProps) {
               ))}
             </div>
           </div>
-        </button>
+        </div>
 
         {/* BACK */}
         <div className="flip-face flip-back absolute inset-0 rounded-2xl p-7 md:p-8 overflow-hidden flex flex-col" style={{ background: "var(--gradient-card)" }}>
           <div className="flex items-start justify-between gap-3">
-            <p className="eyebrow">Background &amp; My Role</p>
+            <Editable id={`fc.${k}.back.eyebrow`} as="p" className="eyebrow" multiline={false}>Background &amp; My Role</Editable>
             <button
               type="button"
               onClick={() => setFlipped(false)}
@@ -112,7 +119,7 @@ export function FlipCard(props: FlipCardProps) {
             to={props.slug}
             className="mt-5 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-[1.02] transition"
           >
-            {props.ctaLabel ?? "Open the full story"}
+            <Editable id={`fc.${k}.cta`} as="span" multiline={false}>{props.ctaLabel ?? "Open the full story"}</Editable>
             <span aria-hidden>→</span>
           </Link>
         </div>
