@@ -59,7 +59,7 @@ function About() {
           the design back to a measurable outcome.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. I use AI to move faster — the judgement and trade-offs stay human.
+          Based in Bangalore. I use AI to move faster — the empathy and judgement stay human.
         </Editable>
       </section>
 
@@ -69,13 +69,13 @@ function About() {
           Where I've spent my time
         </Editable>
         <Editable id="about.places.title" as="h2" className="display-lg max-w-3xl mb-8">
-          A short view of my experience — complex software, made easier to use.
+          A short view of my experience — complex software, made simpler to use.
         </Editable>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { c: "Intuit", n: "QuickBooks Payroll — fintech for US mid-market businesses." },
-            { c: "Deloitte", n: "Intela & enterprise platforms — onboarding and reporting at scale." },
-            { c: "KPMG", n: "Productivity tooling — workforce alignment for global audit teams." },
+            { c: "Intuit", n: "QuickBooks Online & QuickBooks Desktop — payroll fintech for US small and mid-market businesses." },
+            { c: "Deloitte", n: "Intela, K-1G, iPACS and other enterprise platforms — onboarding, reporting and workflow design at scale." },
+            { c: "KPMG", n: "Productivity tool and other platforms for global teams — workforce alignment and day-to-day execution." },
           ].map((x, i) => (
             <div key={x.c} className="glass rounded-2xl p-6">
               <Editable id={`about.places.${i}.c`} as="h3" className="font-display text-2xl text-amber mb-2">
