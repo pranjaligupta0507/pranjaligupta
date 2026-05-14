@@ -49,7 +49,7 @@ export function Editable({ id, as: Tag = "div", className = "", children, multil
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     if (editing) {
-      e.preventDefault();
+      if (e.currentTarget.closest("a")) e.preventDefault();
       e.stopPropagation();
     }
   };
