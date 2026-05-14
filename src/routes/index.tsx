@@ -114,7 +114,7 @@ function Home() {
               Selected work
             </Editable>
             <Editable id="home.work.title" as="h2" className="display-lg max-w-2xl">
-              Selected case studies, told through the problem, process and outcome.
+              Selected case studies — the problem, the process, and what shipped.
             </Editable>
           </div>
           <Editable id="home.work.note" as="p" className="text-sm text-muted-foreground max-w-xs font-mono">
