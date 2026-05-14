@@ -5,8 +5,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Pranjali Gupta · Experienced Product Designer" },
-      { name: "description", content: "Experienced Product Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
+      { title: "About — Pranjali Gupta · Experienced UX Designer" },
+      { name: "description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
     ],
   }),
   component: About,
@@ -52,9 +52,8 @@ function About() {
 
       <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground">
         <Editable id="about.body.1" as="p">
-          I'm a Product Designer with <span className="text-foreground">9.5+ years</span> across
-          enterprise SaaS, fintech and B2B workflows — designing the kind of products thousands of
-          professionals rely on every day.
+          I'm an Experienced UX Designer with <span className="text-foreground">9.5+ years</span> across
+          enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
         </Editable>
         <Editable id="about.body.2" as="p">
           My approach is simple: start with the workflow, ground every decision in user research and
@@ -62,9 +61,9 @@ function About() {
           surface — the real work happens upstream of it.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. I work alongside AI the way I work alongside engineers and PMs — as a
-          collaborator that speeds up research synthesis, exploration and edge-case thinking, while
-          the design judgement, the user empathy and the trade-offs stay mine.
+          Based in Bangalore. I use AI as a design accelerator for synthesis, exploration, content
+          variants and edge-case thinking — while the user empathy, product judgement and final
+          trade-offs stay human.
         </Editable>
       </section>
 
@@ -74,7 +73,7 @@ function About() {
           Where I've spent my time
         </Editable>
         <Editable id="about.places.title" as="h2" className="display-lg max-w-3xl mb-8">
-          Three companies. One thread: complex software, made calmer.
+          A short view of my experience — complex software, made easier to use.
         </Editable>
         <div className="grid md:grid-cols-3 gap-6">
           {[

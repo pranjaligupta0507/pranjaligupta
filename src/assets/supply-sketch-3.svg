@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Supply demand request flow annotation">
+  <rect width="900" height="560" fill="#162439"/>
+  <path d="M102 160h182l52 92 54-92h182l54 92 54-92h118" fill="none" stroke="#f0c36b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#263a58" stroke="#8bc8e8" stroke-width="4">
+    <rect x="80" y="110" width="210" height="100" rx="20"/>
+    <rect x="345" y="250" width="210" height="100" rx="20"/>
+    <rect x="610" y="110" width="210" height="100" rx="20"/>
+  </g>
+  <g fill="#f6efe2" font-family="Arial" font-size="22" font-weight="700">
+    <text x="130" y="168">Request</text><text x="388" y="308">Availability</text><text x="662" y="168">Staffing</text>
+  </g>
+  <g stroke="#8bc8e8" stroke-width="5" stroke-dasharray="12 10" fill="none">
+    <rect x="108" y="392" width="684" height="76" rx="18"/>
+  </g>
+  <text x="146" y="440" fill="#f0c36b" font-family="Arial" font-size="26" font-weight="700">4-hour SLA made visible to every role</text>
+</svg>

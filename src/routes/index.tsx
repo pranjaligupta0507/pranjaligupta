@@ -9,8 +9,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pranjali Gupta — Experienced Product Designer | Enterprise SaaS · Fintech · B2B" },
-      { name: "description", content: "Experienced Product Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing user-centered design with AI-augmented workflows." },
+      { title: "Pranjali Gupta — Experienced UX Designer | SaaS · Fintech" },
+      { name: "description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing human-centered design with AI-augmented workflows." },
     ],
   }),
   component: Home,
@@ -23,13 +23,13 @@ const cases = [
     slug: "/work/payroll-compliance",
     image: casePayroll,
     title: "Making job title a mandatory field for IRS payroll compliance",
-    company: "Intuit · QuickBooks Payroll",
+    company: "QuickBooks Payroll",
     year: "2025",
     tags: ["Fintech", "Compliance UX", "0 → 1"],
     background:
-      "QuickBooks Payroll serves millions of US small businesses. New IRS rules required employers to capture standardized job titles for every employee — without it, businesses risked penalties and Intuit risked compliance gaps across SKUs.",
+      "QuickBooks Payroll serves US small businesses that rely on payday to be accurate, timely and compliant. New IRS rules required employers to capture standardized job titles for every employee — a small field with real penalty risk if handled poorly.",
     role:
-      "Lead designer for the end-to-end employee setup flow. Owned research, IA, prototyping and stakeholder sign-off across product, engineering, compliance and legal — shipping a flow that nudges existing customers without breaking trust.",
+      "Owned the UX for research, IA, prototyping and stakeholder alignment across product, engineering, compliance and legal — shaping a flow that helped customers complete the requirement without making payroll feel harder.",
     metrics: [
       { stat: "25K+", label: "users impacted" },
       { stat: "100%", label: "IRS compliance" },
@@ -42,7 +42,7 @@ const cases = [
     slug: "/work/supply-demand",
     image: caseSupply,
     title: "Turning idle hours into productive output through supply–demand alignment",
-    company: "KPMG · Productivity Tool (AT)",
+    company: "Productivity Tool (AT)",
     year: "2024",
     tags: ["Enterprise SaaS", "B2B Workflows", "Workforce"],
     background:
@@ -65,7 +65,7 @@ function Home() {
         <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
           <div>
             <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
-              Pranjali Gupta · Experienced Product Designer · Bangalore
+              Pranjali Gupta · Experienced UX Designer · Bangalore
             </Editable>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
@@ -74,11 +74,10 @@ function Home() {
               </Editable>
             </motion.div>
             <Editable id="home.hero.lede" as="p" className="lede mt-8 max-w-2xl">
-              9.5+ years designing the kind of products thousands of professionals rely on every day —
-              across enterprise SaaS, fintech and B2B. I pair user-centered design with{" "}
-              <span className="text-foreground">AI-augmented workflows</span> — using AI to move
-              faster on research synthesis, exploration and copy, so the human judgement lands where
-              it matters most.
+              9.5+ years designing products professionals rely on every day — across enterprise SaaS,
+              fintech and B2B. I combine human-centered research with AI-augmented workflows, using AI
+              to synthesize patterns, explore alternatives and sharpen decisions while keeping empathy
+              and judgement at the center.
             </Editable>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#work" className="px-5 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-105 transition shadow-lg">
@@ -104,7 +103,7 @@ function Home() {
               Selected work
             </Editable>
             <Editable id="home.work.title" as="h2" className="display-lg max-w-2xl">
-              A couple of projects I've been close to.
+              Selected case studies, told through the problem, process and outcome.
             </Editable>
           </div>
           <Editable id="home.work.note" as="p" className="text-sm text-muted-foreground max-w-xs font-mono">
@@ -126,7 +125,7 @@ function Home() {
             ["75%", "lift in workforce productivity"],
             ["25K+", "users on systems I designed"],
             ["2,500+", "users adopted across 150+ clients"],
-            ["9.5 yrs", "across 3 global enterprises"],
+              ["9.5 yrs", "across enterprise SaaS, fintech & B2B"],
           ].map(([n, l], i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }}>
               <Editable id={`home.impact.${i}.n`} as="div" multiline={false} className="font-display text-4xl md:text-5xl text-gradient">
@@ -146,7 +145,7 @@ function Home() {
           How I work
         </Editable>
         <Editable id="home.approach.title" as="h2" className="display-lg max-w-3xl">
-          Human judgement, sharpened by AI. Built on research, shipped against outcomes.
+          Human judgement, sharpened by AI — grounded in research and measured by outcomes.
         </Editable>
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[

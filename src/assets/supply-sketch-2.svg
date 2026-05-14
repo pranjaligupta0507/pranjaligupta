@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Supply demand dashboard wireframe">
+  <rect width="900" height="560" fill="#17263e"/>
+  <rect x="58" y="52" width="784" height="456" rx="24" fill="#233653" stroke="#78c7e8" stroke-width="3"/>
+  <rect x="92" y="94" width="150" height="372" rx="16" fill="#1a2942"/>
+  <g stroke="#f0c36b" stroke-width="8" stroke-linecap="round">
+    <path d="M118 132h82M118 172h56M118 212h96M118 252h72"/>
+  </g>
+  <g fill="none" stroke="#8bc8e8" stroke-width="4">
+    <rect x="284" y="110" width="220" height="120" rx="16"/>
+    <rect x="546" y="110" width="220" height="120" rx="16"/>
+    <rect x="284" y="270" width="482" height="170" rx="16"/>
+  </g>
+  <path d="M322 164h140M322 192h92M584 164h130M584 192h84M322 324h370M322 366h300M322 408h240" stroke="#f0c36b" stroke-width="8" stroke-linecap="round"/>
+  <text x="286" y="76" fill="#f6efe2" font-family="Arial" font-size="25" font-weight="700">Role-aware dashboard lens</text>
+</svg>

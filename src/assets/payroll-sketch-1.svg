@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Payroll employee setup sketch">
+  <rect width="900" height="560" fill="#17233a"/>
+  <rect x="58" y="48" width="784" height="464" rx="24" fill="#223452" stroke="#6bb5d8" stroke-width="3" opacity=".9"/>
+  <path d="M116 122h270M116 164h190M116 220h640M116 282h640M116 344h640" stroke="#f0c36b" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+  <rect x="120" y="386" width="250" height="64" rx="14" fill="none" stroke="#9ed7ef" stroke-width="5" stroke-dasharray="13 12"/>
+  <rect x="410" y="386" width="250" height="64" rx="14" fill="none" stroke="#9ed7ef" stroke-width="5"/>
+  <path d="M700 408l28 28 58-68" fill="none" stroke="#f0c36b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="116" y="88" fill="#e9f5ff" font-family="Arial" font-size="28" font-weight="700">Employee setup: title required</text>
+</svg>

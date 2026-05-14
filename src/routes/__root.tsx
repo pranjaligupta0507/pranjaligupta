@@ -72,16 +72,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pranjali Gupta — Senior Product Designer" },
-      { name: "description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
+      { title: "Pranjali Gupta — Experienced UX Designer" },
+      { name: "description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B workflows — combining human-centered research with AI-augmented design craft." },
       { name: "author", content: "Pranjali Gupta" },
-      { property: "og:title", content: "Pranjali Gupta — Senior Product Designer" },
-      { property: "og:description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
+      { property: "og:title", content: "Pranjali Gupta — Experienced UX Designer" },
+      { property: "og:description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B workflows — combining human-centered research with AI-augmented design craft." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Pranjali Gupta — Senior Product Designer" },
-      { name: "twitter:description", content: "Senior Product Designer with 9.5+ years across Intuit, Deloitte & KPMG. I simplify complex enterprise, fintech & B2B SaaS workflows into experiences people love using." },
+      { name: "twitter:title", content: "Pranjali Gupta — Experienced UX Designer" },
+      { name: "twitter:description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B workflows — combining human-centered research with AI-augmented design craft." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8921607c-8171-44ee-bffe-5069794622d7/id-preview-466c1dc1--5e47b4bc-fe0e-421f-899e-52d9ee443354.lovable.app-1778611518227.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8921607c-8171-44ee-bffe-5069794622d7/id-preview-466c1dc1--5e47b4bc-fe0e-421f-899e-52d9ee443354.lovable.app-1778611518227.png" },
     ],
@@ -115,6 +115,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EditModeProvider, EditModeToggle } from "@/components/EditMode";
+import { PortfolioGate } from "@/components/PortfolioGate";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -122,12 +123,14 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <EditModeProvider>
-        <SiteHeader />
-        <main>
-          <Outlet />
-        </main>
-        <SiteFooter />
-        <EditModeToggle />
+        <PortfolioGate>
+          <SiteHeader />
+          <main>
+            <Outlet />
+          </main>
+          <SiteFooter />
+          <EditModeToggle />
+        </PortfolioGate>
       </EditModeProvider>
     </QueryClientProvider>
   );

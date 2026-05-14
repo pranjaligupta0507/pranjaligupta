@@ -6,6 +6,7 @@ interface Props {
   defaultSrc?: string;
   alt?: string;
   className?: string;
+  imgClassName?: string;
   caption?: string;
   captionId?: string;
 }
@@ -14,7 +15,7 @@ interface Props {
  * Owner-editable image. Click to upload from disk; stores a data URL in
  * localStorage. Visitors see the default or stored image, no controls.
  */
-export function EditableImage({ id, defaultSrc, alt = "", className = "", caption, captionId }: Props) {
+export function EditableImage({ id, defaultSrc, alt = "", className = "", imgClassName = "w-full h-auto block", caption, captionId }: Props) {
   const { editing } = useEditMode();
   const fileRef = useRef<HTMLInputElement>(null);
   const [src, setSrc] = useState<string | undefined>(defaultSrc);
@@ -48,7 +49,7 @@ export function EditableImage({ id, defaultSrc, alt = "", className = "", captio
     <figure className={className}>
       <div className={`relative rounded-2xl overflow-hidden border border-border bg-secondary ${editing ? "outline-dashed outline-1 outline-offset-4 outline-amber/40" : ""}`}>
         {src ? (
-          <img src={src} alt={alt} className="w-full h-auto block" />
+          <img src={src} alt={alt} className={imgClassName} />
         ) : (
           <div className="aspect-[16/10] grid place-items-center text-muted-foreground text-sm">
             {editing ? "Click ‘Upload sketch’ to add an image" : "Sketch coming soon"}
