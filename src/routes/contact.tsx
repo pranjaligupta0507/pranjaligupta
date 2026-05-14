@@ -88,11 +88,13 @@ function ContactCard({
   value,
   icon,
   mono = false,
+  hint,
 }: {
   eyebrow: string;
   value: string;
   icon: React.ReactNode;
   mono?: boolean;
+  hint?: string;
 }) {
   const [copied, setCopied] = useState(false);
   const onCopy = async () => {
