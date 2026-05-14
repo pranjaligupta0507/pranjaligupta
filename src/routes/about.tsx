@@ -22,7 +22,7 @@ const skills = [
   "Workflow & system design",
   "Wireframing & prototyping (Figma)",
   "Usability testing",
-  "Design systems",
+  "Problem solving",
   "Storytelling",
   "Critical thinking",
 ];
@@ -59,7 +59,7 @@ function About() {
           the design back to a measurable outcome.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. I use AI to move faster — the judgement and trade-offs stay human.
+          Based in Bangalore. I use AI to move faster — the empathy and judgement stay human.
         </Editable>
       </section>
 
@@ -69,13 +69,13 @@ function About() {
           Where I've spent my time
         </Editable>
         <Editable id="about.places.title" as="h2" className="display-lg max-w-3xl mb-8">
-          A short view of my experience — complex software, made easier to use.
+          A short view of my experience — complex software, made simpler to use.
         </Editable>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { c: "Intuit", n: "QuickBooks Payroll — fintech for US mid-market businesses." },
-            { c: "Deloitte", n: "Intela & enterprise platforms — onboarding and reporting at scale." },
-            { c: "KPMG", n: "Productivity tooling — workforce alignment for global audit teams." },
+            { c: "Intuit", n: "QuickBooks Online & QuickBooks Desktop — payroll fintech for US small and mid-market businesses." },
+            { c: "Deloitte", n: "Intela, K-1G, iPACS and other enterprise platforms — onboarding, reporting and workflow design at scale." },
+            { c: "KPMG", n: "Productivity tool and other platforms for global teams — workforce alignment and day-to-day execution." },
           ].map((x, i) => (
             <div key={x.c} className="glass rounded-2xl p-6">
               <Editable id={`about.places.${i}.c`} as="h3" className="font-display text-2xl text-amber mb-2">
@@ -110,19 +110,19 @@ function About() {
         </div>
         <div className="glass rounded-2xl p-8">
           <p className="eyebrow mb-4">Recognition</p>
-          <h3 className="font-display text-3xl mb-6">Awards</h3>
+          <h3 className="font-display text-3xl mb-6">Recognition</h3>
           <ul className="space-y-5 text-muted-foreground">
             <li>
-              <p className="font-mono text-xs text-amber">2024 — 25</p>
-              <Editable id="about.award.1" as="p" className="mt-1">Outstanding Professional, Deloitte.</Editable>
+              <p className="font-mono text-xs text-amber">2025</p>
+              <Editable id="about.award.1" as="p" className="mt-1">Multiple appreciations from product, engineering and partner teams.</Editable>
             </li>
             <li>
               <p className="font-mono text-xs text-amber">2021 — 24</p>
-              <Editable id="about.award.2" as="p" className="mt-1">Kudos award, KPMG — productivity tool launch.</Editable>
+              <Editable id="about.award.2" as="p" className="mt-1">Recognized at KPMG for the productivity tool and other related work across global teams.</Editable>
             </li>
             <li>
               <p className="font-mono text-xs text-amber">2016 — 21</p>
-              <Editable id="about.award.3" as="p" className="mt-1">Multiple Spot & Applause awards, Deloitte.</Editable>
+              <Editable id="about.award.3" as="p" className="mt-1">Multiple Spot & Applause recognitions, Deloitte.</Editable>
             </li>
           </ul>
         </div>
