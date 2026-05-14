@@ -64,8 +64,19 @@ function Home() {
       <section className="container-editorial pt-16 md:pt-24 pb-16">
         <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
           <div>
-            <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
-              Pranjali Gupta · Experienced UX Designer · Bangalore
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <Editable id="home.hero.eyebrow" as="p" className="eyebrow !mb-0" multiline={false}>
+                Bangalore, India
+              </Editable>
+              <Editable id="home.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                ● Open to work
+              </Editable>
+            </div>
+            <Editable id="home.hero.name" as="p" multiline={false} className="font-display text-3xl md:text-4xl text-foreground mb-2">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono text-sm md:text-base text-amber mb-6 tracking-wide uppercase">
+              Experienced UX Designer
             </Editable>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
@@ -103,7 +114,7 @@ function Home() {
               Selected work
             </Editable>
             <Editable id="home.work.title" as="h2" className="display-lg max-w-2xl">
-              Selected case studies, told through the problem, process and outcome.
+              Selected case studies — the problem, the process, and what shipped.
             </Editable>
           </div>
           <Editable id="home.work.note" as="p" className="text-sm text-muted-foreground max-w-xs font-mono">
@@ -147,11 +158,18 @@ function Home() {
         <Editable id="home.approach.title" as="h2" className="display-lg max-w-3xl">
           Human judgement, sharpened by AI — grounded in research and measured by outcomes.
         </Editable>
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        <Editable id="home.approach.sub" as="p" className="lede mt-6 max-w-3xl">
+          My work sits at the intersection of <span className="text-foreground">product, users, business and revenue</span> — every decision earns its place against all four.
+        </Editable>
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               t: "Product thinking, first",
               d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
+            },
+            {
+              t: "User-centric, always",
+              d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
             },
             {
               t: "Human + AI, in the loop",
