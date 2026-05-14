@@ -25,11 +25,7 @@ function Contact() {
         Contact
       </Editable>
       <Editable id="contact.title" as="h1" className="display-xl max-w-4xl">
-        Let's talk.
-      </Editable>
-      <Editable id="contact.lede" as="p" className="lede mt-8 max-w-2xl">
-        The fastest way to reach me is email or LinkedIn. I reply to thoughtful messages within
-        24 hours.
+        Let's connect.
       </Editable>
 
       <motion.div
