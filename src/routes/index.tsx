@@ -158,11 +158,18 @@ function Home() {
         <Editable id="home.approach.title" as="h2" className="display-lg max-w-3xl">
           Human judgement, sharpened by AI — grounded in research and measured by outcomes.
         </Editable>
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
+        <Editable id="home.approach.sub" as="p" className="lede mt-6 max-w-3xl">
+          My work sits at the intersection of <span className="text-foreground">product, users, business and revenue</span> — every decision earns its place against all four.
+        </Editable>
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               t: "Product thinking, first",
               d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
+            },
+            {
+              t: "User-centric, always",
+              d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
             },
             {
               t: "Human + AI, in the loop",
