@@ -28,6 +28,7 @@ interface Props {
   outcomes: { stat: string; label: string }[];
   reflection: ReactNode;
   interviews?: { quote: string; who: string }[];
+  sketches?: { src: string; alt: string; caption: string }[];
   next?: { slug: string; title: string };
 }
 
@@ -130,9 +131,13 @@ export function CaseStudyLayout(p: Props) {
 
         {/* PROCESS — sketches & interview */}
         <div className="mt-16 grid md:grid-cols-3 gap-6">
-          <EditableImage id={`${k}.sketch.1`} alt="Early sketch" caption="Early flow exploration" captionId={`cs.${k}.sketch.1.cap`} />
-          <EditableImage id={`${k}.sketch.2`} alt="Wireframe" caption="Wireframe iteration" captionId={`cs.${k}.sketch.2.cap`} />
-          <EditableImage id={`${k}.sketch.3`} alt="Hi-fi" caption="Hi-fi annotation" captionId={`cs.${k}.sketch.3.cap`} />
+          {(p.sketches ?? [
+            { src: "", alt: "Early sketch", caption: "Early flow exploration" },
+            { src: "", alt: "Wireframe", caption: "Wireframe iteration" },
+            { src: "", alt: "Hi-fi", caption: "Hi-fi annotation" },
+          ]).map((sketch, i) => (
+            <EditableImage key={i} id={`${k}.sketch.${i + 1}`} defaultSrc={sketch.src} alt={sketch.alt} caption={sketch.caption} captionId={`cs.${k}.sketch.${i + 1}.cap`} />
+          ))}
         </div>
       </section>
 
@@ -179,7 +184,7 @@ export function CaseStudyLayout(p: Props) {
       {/* OUTCOMES */}
       <section className="container-editorial mt-32">
         <div className="rounded-2xl bg-foreground text-background p-10 md:p-16">
-          <p className="eyebrow text-background/60 mb-4">06 — Outcome</p>
+          <Editable id={`cs.${k}.out.eyebrow`} as="p" className="eyebrow text-background/60 mb-4" multiline={false}>06 — Outcome</Editable>
           <Editable id={`cs.${k}.out.h`} as="h2" className="font-display text-4xl md:text-5xl mb-12 max-w-3xl leading-tight">
             What changed after launch.
           </Editable>
@@ -227,7 +232,7 @@ export function CaseStudyLayout(p: Props) {
 function Meta({ label, value, id }: { label: string; value: string; id: string }) {
   return (
     <div>
-      <p className="eyebrow mb-2">{label}</p>
+      <Editable id={`${id}.label`} as="p" className="eyebrow mb-2" multiline={false}>{label}</Editable>
       <Editable id={id} as="p" className="text-foreground" multiline={false}>
         {value}
       </Editable>
@@ -238,7 +243,7 @@ function Meta({ label, value, id }: { label: string; value: string; id: string }
 function FigmaLink({ url, id }: { url?: string; id: string }) {
   return (
     <div>
-      <p className="eyebrow mb-2">Figma</p>
+      <Editable id={`${id}.label`} as="p" className="eyebrow mb-2" multiline={false}>Figma</Editable>
       <EditableLink id={id} href={url ?? ""} label={url ? "Open prototype ↗" : "Add Figma prototype"} target="_blank" className="text-amber hover:underline break-all" hrefPlaceholder="https://figma.com/..." />
     </div>
   );
