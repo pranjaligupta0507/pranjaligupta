@@ -9,8 +9,8 @@ import { Editable } from "@/components/Editable";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pranjali Gupta — Experienced UX Designer | SaaS · Fintech" },
-      { name: "description", content: "Experienced UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing human-centered design with AI-augmented workflows." },
+      { title: "Pranjali Gupta — Senior UX Designer | SaaS · Fintech" },
+      { name: "description", content: "Senior UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — pairing human-centered design with AI-augmented workflows." },
     ],
   }),
   component: Home,
@@ -71,7 +71,7 @@ function Home() {
               Pranjali Gupta
             </Editable>
             <Editable id="home.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-4 tracking-wide uppercase">
-              Experienced UX Designer
+              Senior UX Designer
             </Editable>
             <div className="mb-6">
               <Editable id="home.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
@@ -85,10 +85,9 @@ function Home() {
               </Editable>
             </motion.div>
             <Editable id="home.hero.lede" as="p" className="lede mt-8 max-w-2xl">
-              9.5+ years designing products professionals rely on every day — across enterprise SaaS,
-              fintech and B2B. I combine human-centered research with AI-augmented workflows, using AI
-              to synthesize patterns, explore alternatives and sharpen decisions while keeping empathy
-              and judgement at the center.
+              Senior UX Designer with 9.5+ years across enterprise SaaS, fintech and B2B — designing
+              products professionals rely on every day. I pair human-centered research with AI-augmented
+              workflows, using AI to sharpen decisions while keeping empathy and judgement human.
             </Editable>
             <div className="mt-10 flex flex-wrap gap-3">
               <a href="#work" className="px-5 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-105 transition shadow-lg">
