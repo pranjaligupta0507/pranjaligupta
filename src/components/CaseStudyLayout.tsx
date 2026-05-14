@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Editable } from "@/components/Editable";
 import { EditableImage } from "@/components/EditableImage";
+import { EditableLink } from "@/components/EditableLink";
 
 interface Props {
   /** Stable id used to namespace editable content for this case study (e.g. "payroll"). */
@@ -39,9 +40,9 @@ export function CaseStudyLayout(p: Props) {
         <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-muted-foreground mb-10">
           <Link to="/" className="link-underline">← Selected work</Link>
           <span className="h-px w-8 bg-border" />
-          <span>{p.meta.company}</span>
-          <span>· {p.meta.role}</span>
-          <span>· {p.meta.year}</span>
+          <Editable id={`cs.${k}.crumb.company`} as="span" multiline={false}>{p.meta.company}</Editable>
+          <Editable id={`cs.${k}.crumb.role`} as="span" multiline={false}>· {p.meta.role}</Editable>
+          <Editable id={`cs.${k}.crumb.year`} as="span" multiline={false}>· {p.meta.year}</Editable>
         </div>
         <Editable id={`cs.${k}.title`} as="h1" className="display-xl max-w-5xl">
           {p.title}
@@ -52,9 +53,7 @@ export function CaseStudyLayout(p: Props) {
       </header>
 
       <div className="container-editorial">
-        <div className="rounded-2xl overflow-hidden bg-secondary border border-border">
-          <img src={p.hero} alt={p.heroAlt} width={1600} height={1024} className="w-full h-auto" />
-        </div>
+        <EditableImage id={`cs.${k}.hero`} defaultSrc={p.hero} alt={p.heroAlt} className="rounded-2xl overflow-hidden" />
       </div>
 
       {/* META BAR */}
@@ -70,7 +69,7 @@ export function CaseStudyLayout(p: Props) {
 
       {/* CONTEXT */}
       <section className="container-narrow mt-24">
-        <p className="eyebrow mb-4">01 — Context</p>
+        <Editable id={`cs.${k}.context.eyebrow`} as="p" className="eyebrow mb-4" multiline={false}>01 — Context</Editable>
         <Editable id={`cs.${k}.context.h`} as="h2" className="display-lg mb-8">
           The business, the user, the stakes.
         </Editable>
@@ -81,7 +80,7 @@ export function CaseStudyLayout(p: Props) {
 
       {/* PROBLEM */}
       <section className="container-editorial mt-24">
-        <p className="eyebrow mb-4">02 — The problem in numbers</p>
+        <Editable id={`cs.${k}.problem.eyebrow`} as="p" className="eyebrow mb-4" multiline={false}>02 — The problem in numbers</Editable>
         <div className="grid md:grid-cols-3 gap-6 mt-8">
           {p.problem.map((s, i) => (
             <div key={s.label} className="border border-border rounded-2xl p-8 bg-card">
@@ -98,7 +97,7 @@ export function CaseStudyLayout(p: Props) {
 
       {/* RESEARCH */}
       <section className="container-narrow mt-24">
-        <p className="eyebrow mb-4">03 — Discovery</p>
+        <Editable id={`cs.${k}.research.eyebrow`} as="p" className="eyebrow mb-4" multiline={false}>03 — Discovery</Editable>
         <Editable id={`cs.${k}.research.h`} as="h2" className="display-lg mb-8">
           Listening before drawing.
         </Editable>
@@ -109,7 +108,7 @@ export function CaseStudyLayout(p: Props) {
 
       {/* DECISIONS */}
       <section className="container-editorial mt-24">
-        <p className="eyebrow mb-4">04 — Design decisions</p>
+        <Editable id={`cs.${k}.decisions.eyebrow`} as="p" className="eyebrow mb-4" multiline={false}>04 — Design decisions</Editable>
         <Editable id={`cs.${k}.decisions.h`} as="h2" className="display-lg mb-12">
           The bets I made, and why.
         </Editable>
