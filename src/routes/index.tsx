@@ -168,8 +168,8 @@ function Home() {
               d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
             },
             {
-              t: "User-centric, always",
-              d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
+              t: "User centric, always",
+              d: "User centric means starting with the people who'll use the product — research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
             },
             {
               t: "Human + AI, in the loop",
