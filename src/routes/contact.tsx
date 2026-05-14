@@ -43,11 +43,34 @@ function Contact() {
         <div className="glass rounded-2xl p-8 md:p-10 space-y-7">
           <div>
             <p className="eyebrow mb-2">Email</p>
-            <EditableLink id="contact.email" href={EMAIL} label={EMAIL} kind="email" className="font-display text-2xl md:text-3xl break-words text-foreground hover:text-amber transition" />
+            <a
+              href={`mailto:${EMAIL}`}
+              className="font-display text-2xl md:text-3xl break-words text-foreground hover:text-amber transition block"
+            >
+              {EMAIL}
+            </a>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <a
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono px-3 py-1.5 rounded-full bg-amber text-ink hover:scale-105 transition"
+              >
+                Open in Gmail
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="text-xs font-mono px-3 py-1.5 rounded-full border border-border hover:border-amber transition"
+              >
+                Default mail app
+              </a>
+            </div>
           </div>
           <div className="border-t border-border pt-6">
             <p className="eyebrow mb-2">Phone</p>
-            <EditableLink id="contact.phone" href={PHONE_HREF} label={PHONE} kind="phone" className="font-display text-2xl md:text-3xl text-foreground hover:text-amber transition" />
+            <a href={PHONE_HREF} className="font-display text-2xl md:text-3xl text-foreground hover:text-amber transition">
+              {PHONE}
+            </a>
             <Editable id="contact.phone.note" as="p" className="text-sm text-muted-foreground mt-2">
               Calls and WhatsApp, weekdays 10am — 7pm IST.
             </Editable>
@@ -60,13 +83,12 @@ function Contact() {
           </div>
         </div>
 
-        {/* LinkedIn embed-style card */}
-        <EditableLink
-          id="contact.linkedin.card"
+        {/* LinkedIn card — direct anchor so it always opens */}
+        <a
           href={LINKEDIN}
-          label="View on LinkedIn"
           target="_blank"
-          className="block rounded-2xl overflow-hidden border border-border hover:border-amber transition group"
+          rel="noopener noreferrer"
+          className="block rounded-2xl overflow-hidden border border-border hover:border-amber transition group bg-card"
         >
           <div className="h-28 bg-gradient-to-r from-azure/30 via-amber/20 to-azure/30" />
           <div className="px-7 pb-7 -mt-12 relative">
@@ -76,21 +98,21 @@ function Contact() {
             <div className="mt-5">
               <p className="font-display text-2xl">Pranjali Gupta</p>
               <Editable id="contact.linkedin.headline" as="p" className="text-sm text-muted-foreground mt-1">
-                Product Designer · Enterprise SaaS · Fintech · B2B
+                Experienced UX Designer · Enterprise SaaS · Fintech · B2B
               </Editable>
               <p className="text-xs font-mono text-muted-foreground mt-1">Bangalore, India</p>
             </div>
-            <div className="mt-6 flex items-center justify-between">
+            <div className="mt-6 flex items-center justify-between gap-3 flex-wrap">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber text-ink text-sm font-medium group-hover:scale-105 transition">
                 <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
                   <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13Zm1.78 13.02H3.55V9h3.57v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.21 0 22.23 0Z"/>
                 </svg>
                 View on LinkedIn
               </span>
-              <span className="text-xs font-mono text-muted-foreground">linkedin.com/in/pranjali-gupta-5a…</span>
+              <span className="text-xs font-mono text-muted-foreground">linkedin.com/in/pranjali-gupta-5a1234110</span>
             </div>
           </div>
-        </EditableLink>
+        </a>
       </motion.div>
     </section>
   );
