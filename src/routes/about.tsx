@@ -139,18 +139,18 @@ function About() {
         </div>
       </section>
 
-      <section className="container-editorial mt-24 mb-8">
-        <div className="border-t border-border pt-10 flex flex-wrap items-end justify-between gap-6">
-          <Editable id="about.cta.title" as="h2" className="font-display text-3xl md:text-5xl max-w-2xl leading-tight">
-            More on LinkedIn, or drop a note.
+      <section className="container-editorial mt-24 mb-16">
+        <div className="border-t border-border pt-12">
+          <Editable id="about.closing.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
+            Beyond the screen
           </Editable>
-          <div className="flex gap-3">
-            <a href={LINKEDIN} target="_blank" rel="noopener" className="px-5 py-3 rounded-full border border-border hover:border-amber hover:text-amber transition text-sm">
-              LinkedIn ↗
-            </a>
-            <Link to="/contact" className="px-6 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-105 transition">
-              Contact →
-            </Link>
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <Editable id="about.closing.quote" as="blockquote" className="font-display text-3xl md:text-4xl leading-tight text-foreground">
+              "Good design is quiet — it removes friction so people can do the work that matters."
+            </Editable>
+            <Editable id="about.closing.body" as="p" className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Outside of work, I'm usually reading on product, behavior and systems thinking, sketching workflow ideas, or exploring what AI can (and shouldn't) do inside everyday tools. I believe in building carefully, slowly — and shipping work that holds up after launch day.
+            </Editable>
           </div>
         </div>
       </section>
