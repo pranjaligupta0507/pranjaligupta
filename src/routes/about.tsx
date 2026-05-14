@@ -22,7 +22,7 @@ const skills = [
   "Workflow & system design",
   "Wireframing & prototyping (Figma)",
   "Usability testing",
-  "Design systems",
+  "Problem solving",
   "Storytelling",
   "Critical thinking",
 ];
