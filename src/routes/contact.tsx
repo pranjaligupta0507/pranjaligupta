@@ -114,6 +114,7 @@ function ContactCard({
         <p className={`${mono ? "font-mono text-sm" : "font-display text-lg"} text-foreground break-all select-all`}>
           {value}
         </p>
+        {hint && <p className="text-xs text-muted-foreground mt-2 leading-snug">{hint}</p>}
       </div>
       <button
         type="button"
