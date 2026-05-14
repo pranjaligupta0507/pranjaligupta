@@ -9,7 +9,7 @@ export const Route = createFileRoute("/work/payroll-compliance")({
   head: () => ({
     meta: [
       { title: "QuickBooks Payroll · IRS Compliance — Pranjali Gupta" },
-      { name: "description", content: "How a small required field — job title — became a compliance-first redesign for IRS payroll reporting inside QuickBooks." },
+      { name: "description", content: "How a single required field — job title — became a compliance-first redesign for IRS payroll reporting inside QuickBooks." },
       { property: "og:image", content: hero },
     ],
   }),
@@ -35,16 +35,16 @@ export const Route = createFileRoute("/work/payroll-compliance")({
         { quote: "I'd happily fill the field — I just don't know which option I am. Give me examples and I'll pick.", who: "Owner, 5-person dental practice" },
       ]}
       title="A small required field with very large consequences."
-      hook="QuickBooks Payroll powers payday for hundreds of thousands of US small businesses. When the IRS expanded the data required on quarterly filings, one extra field — Job Title — became the difference between clean compliance and five-figure penalties. This is the story of designing that field so an SMB owner felt guided, not policed."
+      hook="QuickBooks Payroll powers payday for US mid-market businesses. When the IRS expanded the data required on quarterly filings, one extra field — Job Title — became the difference between clean compliance and five-figure penalties. This is the story of designing that field so an owner felt guided, not policed."
       hero={hero}
       heroAlt="Editorial collage representing IRS payroll forms and compliance"
       context={
         <>
           <p>
-            QuickBooks Payroll sits at the intersection of fintech and HR for the long tail of US
-            small businesses — restaurants, contractors, dental practices, two-person agencies. The
-            owner is rarely a payroll specialist; payroll is the one task they want to think about
-            the least and trust the most.
+            QuickBooks Payroll sits at the intersection of fintech and HR for US mid-market
+            businesses — restaurants, contractors, dental practices, growing agencies. The owner is
+            rarely a payroll specialist; payroll is the one task they want to think about the least
+            and trust the most.
           </p>
           <p>
             In 2024 the IRS expanded the data points required on quarterly and annual filings —
