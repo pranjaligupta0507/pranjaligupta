@@ -90,7 +90,7 @@ function Contact() {
               <span className="text-xs font-mono text-muted-foreground">linkedin.com/in/pranjali-gupta-5a…</span>
             </div>
           </div>
-        </a>
+        </EditableLink>
       </motion.div>
     </section>
   );
