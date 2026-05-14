@@ -33,13 +33,24 @@ function About() {
       <section className="container-editorial pt-16 md:pt-24 pb-12">
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
-            <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
+            <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
               About
             </Editable>
-            <Editable id="about.hero.title" as="h1" className="display-xl">
+            <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-6xl text-foreground mb-2 leading-tight">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-lg md:text-xl text-amber mb-4 tracking-wide uppercase">
+              Experienced UX Designer
+            </Editable>
+            <div className="mb-6">
+              <Editable id="about.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                ● Open to work
+              </Editable>
+            </div>
+            <Editable id="about.hero.title" as="h1" className="display-lg">
               A designer with a <span className="text-gradient">product brain</span>.
             </Editable>
-            <Editable id="about.hero.lede" as="p" className="lede mt-8 max-w-xl">
+            <Editable id="about.hero.lede" as="p" className="lede mt-6 max-w-xl">
               I think in products and design for people.
             </Editable>
           </div>
