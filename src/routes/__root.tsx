@@ -115,7 +115,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { EditModeProvider, EditModeToggle } from "@/components/EditMode";
-import { PortfolioGate } from "@/components/PortfolioGate";
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -123,14 +122,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <EditModeProvider>
-        <PortfolioGate>
-          <SiteHeader />
-          <main>
-            <Outlet />
-          </main>
-          <SiteFooter />
-          <EditModeToggle />
-        </PortfolioGate>
+        <SiteHeader />
+        <main>
+          <Outlet />
+        </main>
+        <SiteFooter />
+        <EditModeToggle />
       </EditModeProvider>
     </QueryClientProvider>
   );
