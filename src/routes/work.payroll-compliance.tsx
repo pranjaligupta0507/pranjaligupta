@@ -18,10 +18,10 @@ export const Route = createFileRoute("/work/payroll-compliance")({
       editKey="payroll"
       meta={{
         company: "Intuit · QuickBooks Payroll",
-        role: "UX Designer — End-to-end owner",
+        role: "Senior Product Designer (UX) — End-to-end owner",
         year: "2025",
         duration: "12 weeks · 0 → 1",
-        platform: "Web · QuickBooks Payroll (US SMB)",
+        platform: "Web · QuickBooks Payroll (US SMB & mid-market)",
         team: "1 PM · 1 Design · 4 Eng · Compliance · Legal",
       }}
       figmaUrl={undefined}

@@ -23,13 +23,13 @@ const cases = [
     slug: "/work/payroll-compliance",
     image: casePayroll,
     title: "Making job title a mandatory field for IRS payroll compliance",
-    company: "QuickBooks Payroll",
+    company: "QuickBooks Payroll · Intuit",
     year: "2025",
     tags: ["Fintech", "Compliance UX", "0 → 1"],
     background:
-      "QuickBooks Payroll serves US mid-market businesses that rely on payday to be accurate, timely and compliant. New IRS rules required employers to capture standardized job titles for every employee — a single field with real penalty risk if handled poorly.",
+      "QuickBooks Payroll serves US small and mid-market businesses. A new IRS reporting requirement turned a single field — job title — into a compliance-critical step that, if mishandled, exposed customers to penalties and Intuit to churn risk.",
     role:
-      "Owned the UX for research, IA, prototyping and stakeholder alignment across product, engineering, compliance and legal — shaping a flow that helped customers complete the requirement without making payroll feel harder.",
+      "Senior Product Designer (UX) — owned end-to-end design: research, IA, prototyping and stakeholder alignment across product, engineering, compliance and legal. Delivered a compliance-first experience that helps businesses meet IRS reporting requirements, avoid penalties and unlocks new revenue.",
     metrics: [
       { stat: "25K+", label: "users impacted" },
       { stat: "100%", label: "IRS compliance" },
@@ -41,14 +41,14 @@ const cases = [
     no: "02",
     slug: "/work/supply-demand",
     image: caseSupply,
-    title: "Turning idle hours into productive output through supply–demand alignment",
-    company: "Productivity Tool (AT)",
+    title: "Turning idle hours into productive output & revenue through supply–demand alignment",
+    company: "Productivity Tool (AT) · KPMG",
     year: "2024",
     tags: ["Enterprise SaaS", "B2B Workflows", "Workforce"],
     background:
-      "Across KPMG audit teams, preparers, reviewers and resource managers worked in disconnected tools. Idle hours were invisible, requests were lost in email, and billable revenue leaked every week.",
+      "Across KPMG audit teams, preparers, reviewers and resource/project managers worked in disconnected tools. Idle hours were invisible, requests were lost in email, and billable revenue leaked every week.",
     role:
-      "Led design end-to-end from problem framing to launch. Ran user research, mapped the supply-demand workflow, and shipped a unified workspace that aligned availability with live work requests.",
+      "Senior Product Designer (UX) — led design end-to-end from problem definition to launch. Delivered a unified platform for preparers, reviewers and resource managers to align work requests with availability and improve revenue generation.",
     metrics: [
       { stat: "+75%", label: "workforce productivity" },
       { stat: "1 tool", label: "replaced 3 systems" },
