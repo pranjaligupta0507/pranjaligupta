@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useEditMode } from "./EditMode";
 
 type LinkKind = "url" | "email" | "phone";
@@ -12,6 +12,7 @@ interface EditableLinkProps {
   target?: string;
   rel?: string;
   hrefPlaceholder?: string;
+  children?: ReactNode;
 }
 
 function normalizeHref(value: string, kind: LinkKind) {
@@ -31,6 +32,7 @@ export function EditableLink({
   target,
   rel = "noopener noreferrer",
   hrefPlaceholder = "Paste link",
+  children,
 }: EditableLinkProps) {
   const { editing } = useEditMode();
   const labelKey = `edit:${id}:label`;
@@ -63,6 +65,7 @@ export function EditableLink({
   if (editing) {
     return (
       <span className="inline-flex w-full max-w-full flex-col gap-2 rounded-lg border border-dashed border-amber/50 bg-background/40 p-2">
+        {children && <span className="pointer-events-none opacity-90">{children}</span>}
         <input
           value={text}
           onChange={(event) => saveText(event.target.value)}
@@ -81,12 +84,12 @@ export function EditableLink({
   }
 
   if (!normalized) {
-    return <span className={className}>{text}</span>;
+    return <span className={className}>{children ?? text}</span>;
   }
 
   return (
     <a href={normalized} target={target} rel={target ? rel : undefined} className={className}>
-      {text}
+      {children ?? text}
     </a>
   );
 }
