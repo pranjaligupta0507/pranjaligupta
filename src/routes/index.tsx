@@ -192,20 +192,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="container-editorial mt-28">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="rounded-3xl p-10 md:p-16 grid md:grid-cols-[1fr_auto] gap-8 items-end" style={{ background: "var(--gradient-amber)" }}>
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-ink/70 mb-4">Get in touch</p>
-            <Editable id="home.cta.title" as="h2" className="font-display text-4xl md:text-5xl leading-[1.05] max-w-2xl text-ink">
-              If something here resonates, say hi.
-            </Editable>
-          </div>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-ink text-mist text-sm hover:scale-105 transition self-start">
-            Start a conversation <span aria-hidden>→</span>
-          </Link>
-        </motion.div>
-      </section>
     </>
   );
 }
