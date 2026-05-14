@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Payroll guided picker wireframe">
+  <rect width="900" height="560" fill="#18263f"/>
+  <rect x="76" y="58" width="748" height="444" rx="28" fill="#233653" stroke="#dcae56" stroke-width="3"/>
+  <text x="122" y="112" fill="#f6efe2" font-family="Arial" font-size="30" font-weight="700">Choose the closest job title category</text>
+  <g fill="none" stroke="#8bc8e8" stroke-width="4">
+    <rect x="122" y="154" width="290" height="82" rx="16"/>
+    <rect x="452" y="154" width="250" height="82" rx="16"/>
+    <rect x="122" y="266" width="250" height="82" rx="16"/>
+    <rect x="412" y="266" width="330" height="82" rx="16"/>
+  </g>
+  <g stroke="#e8bf68" stroke-width="8" stroke-linecap="round">
+    <path d="M150 188h160M150 212h118M480 188h110M480 212h160M150 300h140M150 324h98M440 300h210M440 324h150"/>
+  </g>
+  <path d="M682 402c54-18 94-5 110 34" fill="none" stroke="#f6efe2" stroke-width="5" stroke-dasharray="10 10"/>
+  <text x="522" y="456" fill="#f6efe2" font-family="Arial" font-size="24">Plain-language examples</text>
+</svg>
