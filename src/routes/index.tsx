@@ -64,20 +64,20 @@ function Home() {
       <section className="container-editorial pt-16 md:pt-24 pb-16">
         <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
           <div>
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <Editable id="home.hero.eyebrow" as="p" className="eyebrow !mb-0" multiline={false}>
-                Bangalore, India
-              </Editable>
+            <Editable id="home.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
+              Bangalore, India
+            </Editable>
+            <Editable id="home.hero.name" as="p" multiline={false} className="font-display font-bold text-4xl md:text-5xl text-foreground mb-2">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-4 tracking-wide uppercase">
+              Experienced UX Designer
+            </Editable>
+            <div className="mb-6">
               <Editable id="home.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 ● Open to work
               </Editable>
             </div>
-            <Editable id="home.hero.name" as="p" multiline={false} className="font-display text-3xl md:text-4xl text-foreground mb-2">
-              Pranjali Gupta
-            </Editable>
-            <Editable id="home.hero.role" as="p" multiline={false} className="font-mono text-sm md:text-base text-amber mb-6 tracking-wide uppercase">
-              Experienced UX Designer
-            </Editable>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
                 I think in <span className="text-gradient">products</span>,
@@ -168,8 +168,8 @@ function Home() {
               d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
             },
             {
-              t: "User-centric, always",
-              d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
+              t: "User centric, always",
+              d: "User centric means starting with the people who'll use the product — research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
             },
             {
               t: "Human + AI, in the loop",

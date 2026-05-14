@@ -1,6 +1,35 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Editable } from "@/components/Editable";
 
-const LINKEDIN = "https://www.linkedin.com/in/pranjali-gupta-5a1234110/";
+function CopyRow({ id, label, value }: { id: string; label: string; value: string }) {
+  const [copied, setCopied] = useState(false);
+  const onCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {}
+  };
+  return (
+    <li className="flex flex-col gap-1">
+      <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-mono">{label}</span>
+      <div className="flex items-center gap-2">
+        <Editable id={id} as="span" multiline={false} className="text-sm text-foreground break-all">
+          {value}
+        </Editable>
+        <button
+          type="button"
+          onClick={onCopy}
+          className="text-[11px] font-mono px-2 py-0.5 rounded-full border border-border hover:border-amber hover:text-amber transition shrink-0"
+          aria-label={`Copy ${label}`}
+        >
+          {copied ? "Copied" : "Copy"}
+        </button>
+      </div>
+    </li>
+  );
+}
 
 export function SiteFooter() {
   return (
@@ -9,14 +38,14 @@ export function SiteFooter() {
         <div>
           <p className="eyebrow mb-3">Pranjali Gupta</p>
           <p className="font-display text-2xl leading-tight">
-            Experienced Product Designer · Bangalore.
+            Experienced UX Designer · Bangalore.
           </p>
         </div>
         <div>
           <p className="eyebrow mb-3">Elsewhere</p>
-          <ul className="space-y-2 text-sm">
-            <li><a href="mailto:pranjaligupta0507@gmail.com" className="link-underline">pranjaligupta0507@gmail.com</a></li>
-            <li><a href={LINKEDIN} target="_blank" rel="noopener" className="link-underline">LinkedIn</a></li>
+          <ul className="space-y-4 text-sm">
+            <CopyRow id="footer.email" label="Email" value="pranjaligupta0507@gmail.com" />
+            <CopyRow id="footer.linkedin" label="LinkedIn" value="linkedin.com/in/pranjali-gupta-5a1234110" />
           </ul>
         </div>
         <div>
