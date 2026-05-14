@@ -18,7 +18,7 @@ export const Route = createFileRoute("/work/supply-demand")({
       editKey="supply"
       meta={{
         company: "KPMG · Productivity Tool (AT)",
-        role: "UX Designer — End-to-end owner",
+        role: "Senior Product Designer (UX) — End-to-end owner",
         year: "2022 — 2024",
         duration: "18 months · End-to-end ownership",
         platform: "Internal web platform · Global",
