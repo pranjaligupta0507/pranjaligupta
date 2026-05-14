@@ -35,21 +35,76 @@ function Contact() {
         className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         {/* Email */}
-        <a
-          href={`mailto:${EMAIL}`}
-          className="group glass rounded-2xl p-7 flex flex-col gap-4 hover:border-amber border border-border transition"
-        >
-          <span className="w-12 h-12 rounded-full bg-amber/15 text-amber grid place-items-center group-hover:bg-amber group-hover:text-ink transition">
-            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
-            </svg>
-          </span>
-          <div>
-            <p className="eyebrow mb-1">Email</p>
-            <p className="font-display text-xl break-words text-foreground group-hover:text-amber transition">{EMAIL}</p>
-          </div>
-          <span className="mt-auto text-xs font-mono text-muted-foreground">Tap to open mail →</span>
-        </a>
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              type="button"
+              className="group glass rounded-2xl p-7 flex flex-col gap-4 hover:border-amber border border-border transition text-left w-full"
+            >
+              <span className="w-12 h-12 rounded-full bg-amber/15 text-amber grid place-items-center group-hover:bg-amber group-hover:text-ink transition">
+                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>
+                </svg>
+              </span>
+              <div>
+                <p className="eyebrow mb-1">Email</p>
+                <p className="font-display text-xl break-words text-foreground group-hover:text-amber transition">{EMAIL}</p>
+              </div>
+              <span className="mt-auto text-xs font-mono text-muted-foreground">Choose how to send →</span>
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-64 p-2" align="start">
+            <ul className="text-sm">
+              <li>
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 rounded-lg hover:bg-amber/10 hover:text-amber transition"
+                >
+                  Gmail
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://outlook.live.com/mail/0/deeplink/compose?to=${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 rounded-lg hover:bg-amber/10 hover:text-amber transition"
+                >
+                  Outlook
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://mail.yahoo.com/d/compose?to=${EMAIL}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-3 py-2 rounded-lg hover:bg-amber/10 hover:text-amber transition"
+                >
+                  Yahoo Mail
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="block px-3 py-2 rounded-lg hover:bg-amber/10 hover:text-amber transition"
+                >
+                  Default mail app
+                </a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigator.clipboard?.writeText(EMAIL)}
+                  className="w-full text-left block px-3 py-2 rounded-lg hover:bg-amber/10 hover:text-amber transition"
+                >
+                  Copy address
+                </button>
+              </li>
+            </ul>
+          </PopoverContent>
+        </Popover>
 
         {/* Phone */}
         <a
