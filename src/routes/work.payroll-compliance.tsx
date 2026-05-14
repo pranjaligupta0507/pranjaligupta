@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import hero from "@/assets/case-payroll.jpg";
+import sketch1 from "@/assets/payroll-sketch-1.svg";
+import sketch2 from "@/assets/payroll-sketch-2.svg";
+import sketch3 from "@/assets/payroll-sketch-3.svg";
 
 export const Route = createFileRoute("/work/payroll-compliance")({
   head: () => ({
@@ -15,13 +18,18 @@ export const Route = createFileRoute("/work/payroll-compliance")({
       editKey="payroll"
       meta={{
         company: "Intuit · QuickBooks Payroll",
-        role: "Product Designer (UX) — Lead",
+        role: "UX Designer — End-to-end owner",
         year: "2025",
         duration: "12 weeks · 0 → 1",
         platform: "Web · QuickBooks Payroll (US SMB)",
         team: "1 PM · 1 Design · 4 Eng · Compliance · Legal",
       }}
       figmaUrl={undefined}
+      sketches={[
+        { src: sketch1, alt: "Payroll employee setup sketch", caption: "Employee setup flow — where the IRS requirement enters the journey." },
+        { src: sketch2, alt: "Guided job title picker wireframe", caption: "Guided picker exploration — plain-language categories instead of a dense taxonomy." },
+        { src: sketch3, alt: "Payroll nudge annotation", caption: "Pre-payroll nudge — resolving missing titles before payday pressure." },
+      ]}
       interviews={[
         { quote: "I just want to pay my people. If you ask me one more question on Friday I will switch tools.", who: "Owner, 12-person construction firm" },
         { quote: "I'd happily fill the field — I just don't know which option I am. Give me examples and I'll pick.", who: "Owner, 5-person dental practice" },
