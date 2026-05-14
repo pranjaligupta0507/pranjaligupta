@@ -33,13 +33,24 @@ function About() {
       <section className="container-editorial pt-16 md:pt-24 pb-12">
         <div className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
-            <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-6" multiline={false}>
+            <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
               About
             </Editable>
-            <Editable id="about.hero.title" as="h1" className="display-xl">
+            <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-6xl text-foreground mb-2 leading-tight">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-lg md:text-xl text-amber mb-4 tracking-wide uppercase">
+              Experienced UX Designer
+            </Editable>
+            <div className="mb-6">
+              <Editable id="about.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                ● Open to work
+              </Editable>
+            </div>
+            <Editable id="about.hero.title" as="h1" className="display-lg">
               A designer with a <span className="text-gradient">product brain</span>.
             </Editable>
-            <Editable id="about.hero.lede" as="p" className="lede mt-8 max-w-xl">
+            <Editable id="about.hero.lede" as="p" className="lede mt-6 max-w-xl">
               I think in products and design for people.
             </Editable>
           </div>
@@ -128,18 +139,18 @@ function About() {
         </div>
       </section>
 
-      <section className="container-editorial mt-24 mb-8">
-        <div className="border-t border-border pt-10 flex flex-wrap items-end justify-between gap-6">
-          <Editable id="about.cta.title" as="h2" className="font-display text-3xl md:text-5xl max-w-2xl leading-tight">
-            More on LinkedIn, or drop a note.
+      <section className="container-editorial mt-24 mb-16">
+        <div className="border-t border-border pt-12">
+          <Editable id="about.closing.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
+            Beyond the screen
           </Editable>
-          <div className="flex gap-3">
-            <a href={LINKEDIN} target="_blank" rel="noopener" className="px-5 py-3 rounded-full border border-border hover:border-amber hover:text-amber transition text-sm">
-              LinkedIn ↗
-            </a>
-            <Link to="/contact" className="px-6 py-3 rounded-full bg-amber text-ink text-sm font-medium hover:scale-105 transition">
-              Contact →
-            </Link>
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            <Editable id="about.closing.quote" as="blockquote" className="font-display text-3xl md:text-4xl leading-tight text-foreground">
+              "Good design is quiet — it removes friction so people can do the work that matters."
+            </Editable>
+            <Editable id="about.closing.body" as="p" className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Outside of work, I'm usually reading on product, behavior and systems thinking, sketching workflow ideas, or exploring what AI can (and shouldn't) do inside everyday tools. I believe in building carefully, slowly — and shipping work that holds up after launch day.
+            </Editable>
           </div>
         </div>
       </section>
