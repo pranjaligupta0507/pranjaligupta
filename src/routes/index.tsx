@@ -150,6 +150,9 @@ function Home() {
         </div>
       </section>
 
+      {/* COMPANIES */}
+      <CompaniesSection idPrefix="home" />
+
       {/* APPROACH */}
       <section className="container-editorial mt-28">
         <Editable id="home.approach.eyebrow" as="p" className="eyebrow mb-3" multiline={false}>
