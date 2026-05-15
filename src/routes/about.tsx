@@ -66,7 +66,7 @@ function About() {
           the design back to a measurable outcome.
         </Editable>
         <Editable id="about.body.3" as="p">
-          Based in Bangalore. I use AI to move faster — the empathy and judgement stay human.
+          My work sits at the intersection of <span className="text-foreground">user, product, business and revenue</span> — every decision earns its place against all four. I lean on AI to move faster on research synthesis, exploration and edge cases, while the empathy, judgement and trade-offs stay human.
         </Editable>
       </section>
 
