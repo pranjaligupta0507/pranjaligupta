@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { Editable } from "@/components/Editable";
+import { CompaniesSection } from "@/components/CompaniesSection";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
