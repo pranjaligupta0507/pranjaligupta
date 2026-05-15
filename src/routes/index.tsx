@@ -5,6 +5,7 @@ import caseSupply from "@/assets/case-supply.jpg";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { FlipCard } from "@/components/FlipCard";
 import { Editable } from "@/components/Editable";
+import { CompaniesSection } from "@/components/CompaniesSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
