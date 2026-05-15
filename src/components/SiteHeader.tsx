@@ -11,9 +11,9 @@ export function SiteHeader() {
           <Editable id="nav.role" as="span" multiline={false} className="hidden sm:inline text-xs text-muted-foreground font-mono">· Senior UX Designer</Editable>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="text-muted-foreground hover:text-foreground transition">Work</Link>
-          <Link to="/about" activeProps={{ className: "text-foreground" }} className="text-muted-foreground hover:text-foreground transition">About</Link>
-          <Link to="/contact" activeProps={{ className: "text-foreground" }} className="text-muted-foreground hover:text-foreground transition">Contact</Link>
+          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-amber font-semibold border-b-2 border-amber pb-1" }} className="text-muted-foreground hover:text-foreground transition pb-1">Work</Link>
+          <Link to="/about" activeProps={{ className: "text-amber font-semibold border-b-2 border-amber pb-1" }} className="text-muted-foreground hover:text-foreground transition pb-1">About</Link>
+          <Link to="/contact" activeProps={{ className: "text-amber font-semibold border-b-2 border-amber pb-1" }} className="text-muted-foreground hover:text-foreground transition pb-1">Contact</Link>
         </nav>
         <Link
           to="/contact"

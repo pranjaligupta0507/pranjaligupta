@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { Editable } from "@/components/Editable";
+import { CompaniesSection } from "@/components/CompaniesSection";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -31,22 +32,17 @@ function About() {
   return (
     <>
       <section className="container-editorial pt-16 md:pt-24 pb-12">
-        <div className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7">
+        <div className="grid md:grid-cols-[1fr_320px] gap-12 md:gap-16 items-center">
+          <div>
             <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
               Bangalore, India
             </Editable>
             <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-7xl text-foreground mb-3 leading-[1.05]">
               Pranjali Gupta
             </Editable>
-            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-6 tracking-wide uppercase">
+            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-8 tracking-wide uppercase">
               Senior UX Designer
             </Editable>
-            <div className="mb-8">
-              <Editable id="about.hero.openBadge" as="span" multiline={false} className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                ● Open to work
-              </Editable>
-            </div>
             <Editable id="about.hero.title" as="h1" className="display-lg">
               A designer with a <span className="text-gradient">product brain</span>.
             </Editable>
@@ -54,7 +50,7 @@ function About() {
               I think in products and design for people.
             </Editable>
           </div>
-          <div className="md:col-span-5">
+          <div>
             <ProfilePhoto />
           </div>
         </div>
@@ -74,31 +70,7 @@ function About() {
         </Editable>
       </section>
 
-      {/* Where I've spent my time — short, no resume ladder */}
-      <section className="container-editorial mt-24">
-        <Editable id="about.places.eyebrow" as="p" className="eyebrow mb-3" multiline={false}>
-          Where I've spent my time
-        </Editable>
-        <Editable id="about.places.title" as="h2" className="display-lg max-w-3xl mb-8">
-          A short view of my experience — complex software, made simpler to use.
-        </Editable>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { c: "Intuit", n: "QuickBooks Online & QuickBooks Desktop — payroll fintech for US small and mid-market businesses." },
-            { c: "Deloitte", n: "Intela, K-1G, iPACS and other enterprise platforms — onboarding, reporting and workflow design at scale." },
-            { c: "KPMG", n: "Productivity tool and other platforms for global teams — workforce alignment and day-to-day execution." },
-          ].map((x, i) => (
-            <div key={x.c} className="glass rounded-2xl p-6">
-              <Editable id={`about.places.${i}.c`} as="h3" className="font-display text-2xl text-amber mb-2">
-                {x.c}
-              </Editable>
-              <Editable id={`about.places.${i}.n`} as="p" className="text-sm text-muted-foreground leading-relaxed">
-                {x.n}
-              </Editable>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CompaniesSection idPrefix="about" />
 
       {/* SKILLS + RECOGNITION */}
       <section className="container-editorial mt-24 grid md:grid-cols-2 gap-12">

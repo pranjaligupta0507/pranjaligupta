@@ -5,6 +5,7 @@ import caseSupply from "@/assets/case-supply.jpg";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { FlipCard } from "@/components/FlipCard";
 import { Editable } from "@/components/Editable";
+import { CompaniesSection } from "@/components/CompaniesSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -148,6 +149,9 @@ function Home() {
           ))}
         </div>
       </section>
+
+      {/* COMPANIES */}
+      <CompaniesSection idPrefix="home" />
 
       {/* APPROACH */}
       <section className="container-editorial mt-28">
