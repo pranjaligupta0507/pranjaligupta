@@ -159,28 +159,28 @@ function Home() {
           How I work
         </Editable>
         <Editable id="home.approach.title" as="h2" className="display-lg max-w-3xl">
-          Human judgement, sharpened by AI — grounded in research and measured by outcomes.
+          Human + AI — design grounded in research, tied to outcomes.
         </Editable>
         <Editable id="home.approach.sub" as="p" className="lede mt-6 max-w-3xl">
-          My work sits at the intersection of <span className="text-foreground">product, users, business and revenue</span> — every decision earns its place against all four.
+          My work sits at the intersection of <span className="text-foreground">user, product, business and revenue</span> — every decision earns its place against all four. AI sharpens the speed and surface area; the judgement, empathy and trade-offs stay human.
         </Editable>
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
-              t: "Product thinking, first",
-              d: "I start with the workflow and the business model — what is the user trying to accomplish, and what does success look like for the company?",
+              t: "User — start with the people",
+              d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
             },
             {
-              t: "User centric, always",
-              d: "User centric means starting with the people who'll use the product — research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
+              t: "Product — think in workflows",
+              d: "I design for the whole job, not the screen. Information architecture, system behavior and edge cases matter as much as the happy path.",
             },
             {
-              t: "Human + AI, in the loop",
-              d: "I use AI for research synthesis, rapid exploration, content drafts and edge-case generation — then bring my own judgement to the trade-offs that actually ship.",
+              t: "Business — outcomes over outputs",
+              d: "Every flow ties back to a measurable goal — adoption, compliance, retention or revenue. If it doesn't move a number, it doesn't ship.",
             },
             {
-              t: "Compliance as clarity",
-              d: "In fintech, payroll and audit, the rules can't bend. The job is to make them feel like guidance, not a maze.",
+              t: "Revenue — design that compounds",
+              d: "In fintech, payroll and audit, clarity is revenue. I make the rules feel like guidance, unlock new lines of business, and use AI to get there faster without losing the human in the loop.",
             },
           ].map((p, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="glass rounded-2xl p-7 hover:-translate-y-1 transition-transform">
