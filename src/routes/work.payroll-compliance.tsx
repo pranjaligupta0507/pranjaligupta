@@ -9,7 +9,7 @@ export const Route = createFileRoute("/work/payroll-compliance")({
   head: () => ({
     meta: [
       { title: "QuickBooks Payroll · IRS Compliance — Pranjali Gupta" },
-      { name: "description", content: "How a single required field — job title — became a compliance-first redesign for IRS payroll reporting inside QuickBooks." },
+      { name: "description", content: "Turning a single new IRS-required field into a compliance-first payroll experience inside QuickBooks — without slowing down payday." },
       { property: "og:image", content: hero },
     ],
   }),
@@ -26,102 +26,127 @@ export const Route = createFileRoute("/work/payroll-compliance")({
       }}
       figmaUrl={undefined}
       sketches={[
-        { src: sketch1, alt: "Payroll employee setup sketch", caption: "Employee setup flow — where the IRS requirement enters the journey." },
-        { src: sketch2, alt: "Guided job title picker wireframe", caption: "Guided picker exploration — plain-language categories instead of a dense taxonomy." },
-        { src: sketch3, alt: "Payroll nudge annotation", caption: "Pre-payroll nudge — resolving missing titles before payday pressure." },
+        { src: sketch1, alt: "Payroll employee setup sketch", caption: "Mapping where the new IRS requirement enters the employee setup journey." },
+        { src: sketch2, alt: "Guided job title picker wireframe", caption: "Guided picker — plain-language categories that quietly map to the IRS taxonomy." },
+        { src: sketch3, alt: "Payroll nudge annotation", caption: "Pre-payroll nudge — resolving missing titles before payday pressure hits." },
       ]}
       interviews={[
-        { quote: "I just want to pay my people. If you ask me one more question on Friday I will switch tools.", who: "Owner, 12-person construction firm" },
+        { quote: "I just want to pay my people. If you ask me one more question on Friday, I'll switch tools.", who: "Owner, 12-person construction firm" },
         { quote: "I'd happily fill the field — I just don't know which option I am. Give me examples and I'll pick.", who: "Owner, 5-person dental practice" },
       ]}
-      title="A small required field with very large consequences."
-      hook="QuickBooks Payroll powers payday for US mid-market businesses. When the IRS expanded the data required on quarterly filings, one extra field — Job Title — became the difference between clean compliance and five-figure penalties. This is the story of designing that field so an owner felt guided, not policed."
+      title="Making job title a mandatory field for IRS payroll compliance."
+      hook="When the IRS expanded the data required on quarterly payroll filings, a single new field — Job Title — sat between thousands of QuickBooks Payroll customers and clean compliance. This is how we made that field feel like guidance, not a gate."
       hero={hero}
       heroAlt="Editorial collage representing IRS payroll forms and compliance"
       context={
         <>
           <p>
-            QuickBooks Payroll sits at the intersection of fintech and HR for US mid-market
-            businesses — restaurants, contractors, dental practices, growing agencies. The owner is
-            rarely a payroll specialist; payroll is the one task they want to think about the least
-            and trust the most.
+            QuickBooks Payroll runs payday for hundreds of thousands of US small and
+            mid-market businesses — restaurants, contractors, dental practices, growing
+            agencies. For most owners, payroll is the task they want to think about the
+            least and trust the most. They're not payroll specialists; they're operators
+            trying to pay people correctly and move on.
           </p>
           <p>
-            In 2024 the IRS expanded the data points required on quarterly and annual filings —
-            including a clean, classified <span className="text-foreground">job title</span> for
-            every employee. The change sounded tiny on paper. The downstream impact wasn't:
-            engineering wanted a hard validation, compliance wanted retroactive coverage, customer
-            success wanted nobody to call in, and the SMB owner just wanted to run payroll on
-            Friday.
+            In 2024 the IRS expanded the data points required on quarterly and annual
+            filings, including a classified <span className="text-foreground">job title</span>
+            {" "}for every employee. On paper it was one field. In practice it touched
+            employee setup, payroll runs, year-end reporting and the entire customer
+            base of existing employees with incomplete records.
+          </p>
+          <p>
+            I owned the experience end-to-end across SMB and mid-market SKUs, working
+            with Product, Engineering, Compliance and Legal — and against a hard
+            regulatory deadline.
           </p>
         </>
       }
       problem={[
-        { stat: "~38%", label: "of existing employees in production data had missing or non-compliant titles." },
-        { stat: "$5K+", label: "potential IRS penalty per misclassified employee per filing period." },
-        { stat: "1 in 4", label: "support calls during payroll runs were already about employee setup." },
+        { stat: "New field", label: "IRS-mandated job title classification added to quarterly and annual payroll filings." },
+        { stat: "Legacy gap", label: "A large share of existing employee records carried missing or non-compliant titles that had to be backfilled without disrupting payroll." },
+        { stat: "Payday risk", label: "Employee setup was already a top driver of support contacts during live payroll runs — any new friction would land on payday." },
       ]}
       research={
         <>
           <p>
-            I shadowed eight payroll runs end-to-end with Customer Success, then ran six 1:1
-            interviews with SMB owners across retail, services and construction. Three insights
-            reshaped the brief:
+            I partnered with Customer Success to shadow live payroll runs end-to-end,
+            then ran 1:1 interviews with SMB owners across retail, services and
+            construction. Three patterns reshaped the brief:
           </p>
           <ul className="list-decimal pl-6 space-y-3 marker:font-mono marker:text-muted-foreground">
-            <li>Owners weren't being lazy — they didn't know which IRS category their staff
-              belonged to. They needed a <span className="text-foreground">guided picker</span> with
-              plain-language examples, not a free-text field or a 600-row dropdown.</li>
-            <li>Forcing the field at payroll-run time would block payday. Non-starter — payday is
-              sacred and fragile.</li>
-            <li>Existing employees with bad titles needed to be fixed, but the system should find
-              them, not the owner.</li>
+            <li>
+              Owners weren't avoiding the field — they didn't know which IRS category
+              their staff belonged to. They needed a{" "}
+              <span className="text-foreground">guided picker</span> with plain-language
+              examples, not a free-text input or a dense taxonomy dropdown.
+            </li>
+            <li>
+              Asking for the field <em>during</em> a payroll run would block payday.
+              Non-negotiable: payday had to stay protected.
+            </li>
+            <li>
+              Existing employees with incomplete titles needed to be remediated, but the
+              system should surface them — the owner shouldn't have to hunt.
+            </li>
           </ul>
           <p className="border-l-2 border-amber pl-5 italic text-foreground">
-            "I just want to pay my people. If you ask me one more question on Friday I will switch
-            tools." — Owner, 12-person construction firm
+            "I just want to pay my people. If you ask me one more question on Friday,
+            I'll switch tools." — Owner, 12-person construction firm
+          </p>
+          <p>
+            That quote became the design constraint. The IRS rule was fixed. The
+            moment, the language and the effort we asked of owners were ours to design.
           </p>
         </>
       }
       decisions={[
         {
-          title: "A guided IRS-category picker, not a 600-row SOC dropdown.",
-          body: "We collapsed the IRS classification taxonomy into 7 plain-language buckets — \"Sales & customer-facing\", \"Skilled trades\", \"Operations & admin\" — each with examples beneath. The full SOC code is captured silently for filings; the owner never sees it. Time-to-complete dropped from a measured 47 seconds to 12.",
+          title: "A guided IRS-category picker, not a long classification dropdown.",
+          body: "We collapsed the underlying IRS taxonomy into a small set of plain-language buckets — \"Sales & customer-facing\", \"Skilled trades\", \"Operations & admin\" — each with real-world examples. The system silently captures the full classification code needed for filings; the owner only ever sees language they recognise. The picker meets compliance, but speaks like a person.",
         },
         {
-          title: "A pre-payroll nudge, not a hard block.",
-          body: "Two days before payday a calm single-screen banner surfaced only the employees with missing titles, sorted by who's getting paid that cycle. Each row had an inline picker — no navigation, no modal stack. Resolution averaged 90 seconds for an entire roster.",
+          title: "A pre-payroll nudge, not a hard block on payday.",
+          body: "Instead of interrupting the payroll run, a calm banner surfaces in the days before payday with only the employees whose titles are missing — sorted by who is being paid that cycle. Each row resolves inline, no modal stacks, no navigation. Compliance work moves out of the critical path of paying people.",
         },
         {
           title: "A compliance partner, not a compliance cop.",
-          body: "Every required-field message was rewritten with the same voice principle: state what the IRS needs, why it protects the business, and offer a smart default. Empathetic copy A/B-tested 31% better than the legal-default version, and reduced \"this feels like a trap\" sentiment in support tickets to near-zero.",
+          body: "Every required-field message was rewritten to the same voice principle: name what the IRS needs, explain how it protects the business, and offer a sensible default. Empathetic copy tested meaningfully better than the legal-default version and shifted sentiment in support tickets away from \"this feels like a trap\" toward \"got it, done\".",
+        },
+        {
+          title: "AI in the loop — never on autopilot.",
+          body: "A model suggests the most likely IRS category from the employee's existing free-text title, but the owner always confirms. Silent auto-classification would create silent compliance failures the owner can't see. The owner stays accountable; the AI just removes the cold-start problem.",
         },
       ]}
       tradeoffs={[
         {
-          title: "We didn't auto-classify titles.",
-          body: "We had a model that could guess the SOC code from a free-text title at 78% accuracy. Shipping it would have removed an owner step entirely — but a wrong auto-classification creates a silent compliance failure the owner can't see. We chose explicit confirmation over silent magic. Senior trade-off: the right UX is sometimes the slower one.",
+          title: "We didn't auto-classify without confirmation.",
+          body: "We could have shipped a model that guessed the IRS code from a free-text title and skipped the owner step entirely. But a wrong silent classification creates a downstream filing failure the owner won't notice until the penalty letter arrives. Explicit confirmation was slower for one screen, and safer for the year. Senior trade-off: choose the slower UX when the consequence of being wrong is invisible to the user.",
         },
         {
-          title: "We deferred bulk-edit for v1.",
-          body: "Resource managers asked for a CSV import to fix entire rosters at once. It was the right v2 feature, wrong v1: it broke the calm one-row-at-a-time mental model we'd worked hard to earn. We documented the cut, told CS, and shipped it 6 weeks later when the data showed exactly which segments needed it.",
+          title: "We deferred bulk CSV remediation for v1.",
+          body: "Resource-heavy customers asked for a CSV import to fix entire rosters at once. It was the right v2, wrong v1 — it broke the calm, one-row-at-a-time mental model we'd worked hard to earn. We documented the cut, briefed CS, and shipped bulk-edit later, once data showed exactly which segments actually needed it.",
         },
       ]}
       outcomes={[
-        { stat: "94%", label: "of non-compliant employees fixed within 30 days post-launch — without a single support escalation tied to the new flow." },
-        { stat: "+$XM", label: "in newly protected payroll-add-on revenue across the SMB segment that depends on clean IRS filings (figure under NDA)." },
-        { stat: "0", label: "increase in payday-related support tickets — the metric I promised CS we'd hold." },
+        { stat: "Compliance-ready", label: "Quarterly and annual IRS filings carry the new required classification without changing the payday flow customers already trust." },
+        { stat: "Backfill at scale", label: "Existing employees with incomplete titles are surfaced and remediated outside the payroll run, protecting on-time payday." },
+        { stat: "Revenue unlocked", label: "Cleaner employee data opens the door to additional payroll-add-on workflows and stronger upsell motions for the SMB segment." },
       ]}
       reflection={
         <>
           <p>
-            The temptation in compliance work is to design <em>for</em> the rule. The harder, better
-            job is to design <em>around</em> the rule so the human on the other side never feels the
-            friction of it. The metric I'm proudest of isn't the 94%. It's the zero.
+            The temptation in compliance work is to design <em>for</em> the rule. The
+            harder, more senior job is to design <em>around</em> it — so the human on
+            the other side never feels the friction of it. The win wasn't a clever
+            picker. It was deciding the payroll run was sacred and moving the
+            compliance work somewhere else.
           </p>
           <p>
-            What I'd carry forward: the cheapest research I did on this project was sitting in the
-            CS war-room for two days. I'd do that on day one of every fintech project from now on.
+            What I'd carry forward: the cheapest, highest-leverage research I did on
+            this project was sitting in the CS war-room for two days. I'd do that on day
+            one of every fintech project from now on. And I'd keep treating AI as a way
+            to remove the cold start — not as a substitute for the human signature on a
+            regulated decision.
           </p>
         </>
       }
