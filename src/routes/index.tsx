@@ -164,23 +164,19 @@ function Home() {
         <Editable id="home.approach.sub" as="p" className="lede mt-6 max-w-3xl">
           My work sits at the intersection of <span className="text-foreground">user, product, business and revenue</span> — every decision earns its place against all four. AI sharpens the speed and surface area; the judgement, empathy and trade-offs stay human.
         </Editable>
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
           {[
-            {
-              t: "Revenue — design that compounds",
-              d: "In fintech, payroll and audit, clarity is revenue. I make the rules feel like guidance, unlock new lines of business, and use AI to get there faster without losing the human in the loop.",
-            },
-            {
-              t: "Business — outcomes over outputs",
-              d: "Every flow ties back to a measurable goal — adoption, compliance, retention or revenue. If it doesn't move a number, it doesn't ship.",
-            },
             {
               t: "Product — think in workflows",
               d: "I design for the whole job, not the screen. Information architecture, system behavior and edge cases matter as much as the happy path.",
             },
             {
-              t: "User — start with the people",
+              t: "User centric — start with the people",
               d: "Research, interviews and shadowing come before pixels. The fastest way to ship the wrong thing is to skip the people it's for.",
+            },
+            {
+              t: "Revenue — design that compounds",
+              d: "In fintech, payroll and audit, clarity is revenue. I make the rules feel like guidance, unlock new lines of business, and use AI to get there faster without losing the human in the loop.",
             },
           ].map((p, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="glass rounded-2xl p-7 hover:-translate-y-1 transition-transform">
