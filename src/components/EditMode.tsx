@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-type Ctx = { editing: boolean; owner: boolean; toggle: () => void; unlock: (code: string) => boolean; signOut: () => void };
-const EditModeCtx = createContext<Ctx>({ editing: false, owner: false, toggle: () => {}, unlock: () => false, signOut: () => {} });
+type Ctx = { editing: boolean; owner: boolean; toggle: () => void; unlock: (code: string) => Promise<boolean>; signOut: () => void };
+const EditModeCtx = createContext<Ctx>({ editing: false, owner: false, toggle: () => {}, unlock: async () => false, signOut: () => {} });
 
 const KEY = "pranjali.editmode";
 const OWNER_KEY = "pranjali.owner";
@@ -38,8 +38,9 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
     });
   };
 
-  const unlock = (code: string) => {
-    if (code.trim() === OWNER_CODE) {
+  const unlock = async (code: string) => {
+    const hash = await sha256Hex(code.trim());
+    if (hash === OWNER_CODE_HASH) {
       try { localStorage.setItem(OWNER_KEY, "1"); } catch {}
       setOwner(true);
       return true;
