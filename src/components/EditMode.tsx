@@ -5,8 +5,19 @@ const EditModeCtx = createContext<Ctx>({ editing: false, owner: false, toggle: (
 
 const KEY = "pranjali.editmode";
 const OWNER_KEY = "pranjali.owner";
-// Owner passcode — only Pranjali knows this. Visitors see a read-only site.
-const OWNER_CODE = "pranjali2026";
+// SHA-256 hash of the owner passcode. The plaintext passcode is never
+// shipped in the JS bundle — visitors must know it out-of-band and type
+// it into the unlock dialog, where it's hashed client-side and compared.
+const OWNER_CODE_HASH =
+  "4d914af1d8a275894ff5d116e00ad376aeea2e0522c0a5fd7c8c444001cb664d";
+
+async function sha256Hex(input: string): Promise<string> {
+  const data = new TextEncoder().encode(input);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
 
 export function EditModeProvider({ children }: { children: ReactNode }) {
   const [editing, setEditing] = useState(false);
@@ -14,14 +25,6 @@ export function EditModeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     try {
-      // Auto-unlock via URL param: ?owner=pranjali2025 (one-time, then stored)
-      const url = new URL(window.location.href);
-      const param = url.searchParams.get("owner");
-      if (param === OWNER_CODE) {
-        localStorage.setItem(OWNER_KEY, "1");
-        url.searchParams.delete("owner");
-        window.history.replaceState({}, "", url.toString());
-      }
       setOwner(localStorage.getItem(OWNER_KEY) === "1");
       setEditing(localStorage.getItem(KEY) === "1");
     } catch {}
