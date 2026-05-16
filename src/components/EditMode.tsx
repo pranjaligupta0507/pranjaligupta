@@ -122,9 +122,9 @@ export function EditModeToggle() {
             autoFocus
             value={code}
             onChange={(e) => { setCode(e.target.value); setError(""); }}
-            onKeyDown={(e) => {
+            onKeyDown={async (e) => {
               if (e.key === "Enter") {
-                if (unlock(code)) { setShowLogin(false); setCode(""); }
+                if (await unlock(code)) { setShowLogin(false); setCode(""); }
                 else setError("Wrong passcode.");
               }
               if (e.key === "Escape") setShowLogin(false);
@@ -136,8 +136,8 @@ export function EditModeToggle() {
           <div className="flex justify-end gap-2 mt-4">
             <button onClick={() => setShowLogin(false)} className="text-xs px-3 py-2 rounded-full border border-border">Cancel</button>
             <button
-              onClick={() => {
-                if (unlock(code)) { setShowLogin(false); setCode(""); }
+              onClick={async () => {
+                if (await unlock(code)) { setShowLogin(false); setCode(""); }
                 else setError("Wrong passcode.");
               }}
               className="text-xs px-4 py-2 rounded-full bg-amber text-ink"
