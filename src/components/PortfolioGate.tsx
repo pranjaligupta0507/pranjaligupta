@@ -4,6 +4,14 @@ const GATE_KEY = "pranjali.portfolio.access";
 const PASSCODE_KEY = "pranjali.portfolio.passcode";
 const OWNER_KEY = "pranjali.owner";
 
+async function sha256Hex(input: string): Promise<string> {
+  const data = new TextEncoder().encode(input);
+  const buf = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(buf))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 /**
  * Optional portfolio passcode gate.
  *
@@ -32,9 +40,10 @@ export function PortfolioGate({ children }: { children: ReactNode }) {
     setReady(true);
   }, []);
 
-  const submit = (event: React.FormEvent) => {
+  const submit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (passcode && code === passcode) {
+    const hash = await sha256Hex(code);
+    if (passcode && hash === passcode) {
       try { localStorage.setItem(GATE_KEY, "1"); } catch {}
       setAllowed(true);
       setError("");
@@ -43,16 +52,18 @@ export function PortfolioGate({ children }: { children: ReactNode }) {
     setError("Incorrect passcode.");
   };
 
-  const setOrClearPasscode = (value: string) => {
+  const setOrClearPasscode = async (value: string) => {
     try {
       if (value.trim() === "") {
         localStorage.removeItem(PASSCODE_KEY);
         localStorage.removeItem(GATE_KEY);
         setPasscode(null);
       } else {
-        localStorage.setItem(PASSCODE_KEY, value);
+        // Store only the hash — never the plaintext passcode.
+        const hash = await sha256Hex(value);
+        localStorage.setItem(PASSCODE_KEY, hash);
         localStorage.setItem(GATE_KEY, "1");
-        setPasscode(value);
+        setPasscode(hash);
       }
     } catch {}
     setNewPass("");

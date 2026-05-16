@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import DOMPurify from "dompurify";
 import { useEditMode } from "./EditMode";
+
+const SANITIZE_CONFIG = {
+  ALLOWED_TAGS: ["b", "i", "em", "strong", "u", "br", "span", "a"],
+  ALLOWED_ATTR: ["href", "class", "className", "target", "rel"],
+};
+const sanitize = (html: string) =>
+  typeof window === "undefined" ? "" : String(DOMPurify.sanitize(html, SANITIZE_CONFIG));
 
 interface Props {
   id: string;
@@ -32,7 +40,7 @@ export function Editable({ id, as: Tag = "div", className = "", children, multil
 
   const save = () => {
     if (!ref.current) return;
-    const html = ref.current.innerHTML;
+    const html = sanitize(ref.current.innerHTML);
     try {
       localStorage.setItem(storageKey, html);
     } catch {}
@@ -61,7 +69,7 @@ export function Editable({ id, as: Tag = "div", className = "", children, multil
   // Render stored HTML if available; otherwise fall back to children.
   const content =
     hydrated && storedHtml != null ? (
-      <span dangerouslySetInnerHTML={{ __html: storedHtml }} />
+      <span dangerouslySetInnerHTML={{ __html: sanitize(storedHtml) }} />
     ) : (
       children
     );
