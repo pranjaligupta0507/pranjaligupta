@@ -1,5 +1,13 @@
 import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import DOMPurify from "dompurify";
 import { useEditMode } from "./EditMode";
+
+const SANITIZE_CONFIG: DOMPurify.Config = {
+  ALLOWED_TAGS: ["b", "i", "em", "strong", "u", "br", "span", "a"],
+  ALLOWED_ATTR: ["href", "class", "className", "target", "rel"],
+};
+const sanitize = (html: string) =>
+  typeof window === "undefined" ? "" : (DOMPurify.sanitize(html, SANITIZE_CONFIG) as string);
 
 interface Props {
   id: string;
