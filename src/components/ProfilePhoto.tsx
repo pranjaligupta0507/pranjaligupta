@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import defaultProfile from "@/assets/profile.jpg";
+import { useEditMode } from "./EditMode";
 
 const STORAGE_KEY = "pranjali.profile.image";
 
 export function ProfilePhoto({ className = "" }: { className?: string }) {
+  const { owner } = useEditMode();
   const [src, setSrc] = useState<string>(defaultProfile);
   const inputRef = useRef<HTMLInputElement>(null);
 
