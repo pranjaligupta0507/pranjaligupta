@@ -13,7 +13,7 @@ export function CompaniesSection({ idPrefix }: { idPrefix: string }) {
         Where I've spent my time
       </Editable>
       <Editable id={`${idPrefix}.companies.title`} as="h2" className="display-lg max-w-3xl mb-8">
-        A short view of my experience — complex software, made simpler to use.
+        A short view of my experience — complex products, made informative and simpler to use.
       </Editable>
       <div className="grid md:grid-cols-3 gap-6">
         {companies.map((x, i) => (
