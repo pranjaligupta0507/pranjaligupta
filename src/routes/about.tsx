@@ -32,29 +32,31 @@ function About() {
   return (
     <>
       <section className="container-editorial pt-16 md:pt-24 pb-12">
-        <div className="max-w-3xl">
-          <div className="mb-8 w-40 md:w-48">
+        <div className="grid md:grid-cols-[1fr_320px] gap-12 items-start">
+          <div>
+            <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
+              Bangalore, India
+            </Editable>
+            <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-7xl text-foreground mb-3 leading-[1.05]">
+              Pranjali Gupta
+            </Editable>
+            <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-8 tracking-wide uppercase">
+              Senior UX Designer
+            </Editable>
+            <Editable id="about.hero.title" as="h1" className="display-lg">
+              A designer with a <span className="text-gradient">product brain</span>.
+            </Editable>
+            <Editable id="about.hero.lede" as="p" className="lede mt-6 max-w-xl">
+              I think in products and design for people.
+            </Editable>
+          </div>
+          <div className="w-full">
             <ProfilePhoto />
           </div>
-          <Editable id="about.hero.eyebrow" as="p" className="eyebrow mb-4" multiline={false}>
-            Bangalore, India
-          </Editable>
-          <Editable id="about.hero.name" as="p" multiline={false} className="font-display font-bold text-5xl md:text-7xl text-foreground mb-3 leading-[1.05]">
-            Pranjali Gupta
-          </Editable>
-          <Editable id="about.hero.role" as="p" multiline={false} className="font-mono font-bold text-base md:text-lg text-amber mb-8 tracking-wide uppercase">
-            Senior UX Designer
-          </Editable>
-          <Editable id="about.hero.title" as="h1" className="display-lg">
-            A designer with a <span className="text-gradient">product brain</span>.
-          </Editable>
-          <Editable id="about.hero.lede" as="p" className="lede mt-6 max-w-xl">
-            I think in products and design for people.
-          </Editable>
         </div>
       </section>
 
-      <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground">
+      <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground text-left [text-align:justify] [text-justify:inter-word] hyphens-auto">
         <Editable id="about.body.1" as="p">
           I'm a Senior UX Designer with <span className="text-foreground">9.5+ years</span> across
           enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
