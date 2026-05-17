@@ -59,14 +59,14 @@ function About() {
       <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground">
         <Editable id="about.body.1" as="p">
           I'm a Senior UX Designer with <span className="text-foreground">9.5+ years</span> across
-          enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day. Based in Bangalore.
+          enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
         </Editable>
         <Editable id="about.body.2" as="p">
           My approach is simple: start with the workflow, ground every decision in research, and tie
           the design back to a measurable outcome.
         </Editable>
         <Editable id="about.body.3" as="p">
-          My work sits at the intersection of <span className="text-foreground">user, product, business and revenue</span> — every decision earns its place against all four. I lean on AI to move faster on research synthesis, exploration and edge cases, while the empathy, judgement and trade-offs stay human.
+          My work sits at the intersection of <span className="text-foreground">user, product, business and revenue</span> — every decision earns its place against all four. I work in "Human+AI" model — leaning on AI to move faster on research synthesis, exploration and edge cases, while the empathy, judgement and trade-offs stay human.
         </Editable>
       </section>
 

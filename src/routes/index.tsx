@@ -134,8 +134,8 @@ I think in <span className="text-gradient">products</span> and design for <em cl
           {[
             ["75%", "lift in workforce productivity"],
             ["25K+", "users on systems I designed"],
-            ["2,500+", "users adopted across 150+ clients"],
-              ["9.5 yrs", "across enterprise SaaS, fintech & B2B"],
+            ["5,500+", "users adopted across 150+ clients"],
+              ["9.5+ yrs", "across enterprise SaaS, fintech & B2B"],
           ].map(([n, l], i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }}>
               <Editable id={`home.impact.${i}.n`} as="div" multiline={false} className="font-display text-4xl md:text-5xl text-gradient">
