@@ -81,8 +81,7 @@ function Home() {
             </div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <Editable id="home.hero.title" as="h1" className="display-xl">
-                I think in <span className="text-gradient">products</span>,
-                <br className="hidden md:block" /> I design for <em className="not-italic text-amber">people</em>.
+I think in <span className="text-gradient">products</span> and design for <em className="not-italic text-amber">people</em>.
               </Editable>
             </motion.div>
             <Editable id="home.hero.lede" as="p" className="lede mt-8 max-w-2xl">
