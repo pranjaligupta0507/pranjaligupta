@@ -59,7 +59,7 @@ function About() {
       <section className="container-narrow space-y-6 text-lg leading-relaxed text-muted-foreground">
         <Editable id="about.body.1" as="p">
           I'm a Senior UX Designer with <span className="text-foreground">9.5+ years</span> across
-          enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day.
+          enterprise SaaS, fintech and B2B workflows — designing products professionals rely on every day. Based in Bangalore.
         </Editable>
         <Editable id="about.body.2" as="p">
           My approach is simple: start with the workflow, ground every decision in research, and tie
@@ -121,7 +121,7 @@ function About() {
               "Good design is quiet — it removes friction so people can do the work that matters."
             </Editable>
             <Editable id="about.closing.body" as="p" className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Outside of work, I'm usually reading on product, behavior and systems thinking, sketching workflow ideas, or exploring what AI can (and shouldn't) do inside everyday tools. I believe in building carefully, slowly — and shipping work that holds up after launch day.
+              Outside of work, I'm usually reading on product, behavior and systems thinking, sketching workflow ideas, or exploring what AI can do inside everyday tools. I believe in building carefully, slowly — and shipping work that holds up after launch day.
             </Editable>
           </div>
         </div>
