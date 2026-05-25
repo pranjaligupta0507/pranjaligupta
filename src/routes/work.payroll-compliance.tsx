@@ -34,7 +34,7 @@ export const Route = createFileRoute("/work/payroll-compliance")({
         { quote: "I just want to pay my people. If you ask me one more question on Friday, I'll switch tools.", who: "Owner, 12-person construction firm" },
         { quote: "I'd happily fill the field — I just don't know which option I am. Give me examples and I'll pick.", who: "Owner, 5-person dental practice" },
       ]}
-      title="Making job title a mandatory field for IRS payroll compliance."
+      title="Intuit — Making Job Title a Mandatory Field for IRS Payroll Compliance (Compliance + Revenue centric)"
       hook="When the IRS expanded the data required on quarterly payroll filings, a single new field — Job Title — sat between thousands of QuickBooks Payroll customers and clean compliance. This is how we made that field feel like guidance, not a gate."
       hero={hero}
       heroAlt="Editorial collage representing IRS payroll forms and compliance"
