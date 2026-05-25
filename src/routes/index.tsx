@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import casePayroll from "@/assets/case-payroll.jpg";
+import casePayroll from "@/assets/case-payroll-cover.png";
 import caseSupply from "@/assets/case-supply.jpg";
 import { ProfilePhoto } from "@/components/ProfilePhoto";
 import { FlipCard } from "@/components/FlipCard";
