@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CaseStudyLayout } from "@/components/CaseStudyLayout";
-import hero from "@/assets/case-payroll.jpg";
+import hero from "@/assets/case-payroll-cover.png";
 import sketch1 from "@/assets/payroll-sketch-1.svg";
 import sketch2 from "@/assets/payroll-sketch-2.svg";
 import sketch3 from "@/assets/payroll-sketch-3.svg";
